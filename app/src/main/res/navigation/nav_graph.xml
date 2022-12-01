@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/dashboard">
+
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.example.focusfinder.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/timer"
+        android:name="com.example.focusfinder.Timer"
+        android:label="fragment_timer"
+        tools:layout="@layout/fragment_timer" />
+    <fragment
+        android:id="@+id/taskHome"
+        android:name="com.example.focusfinder.taskHome"
+        android:label="fragment_task_home"
+        tools:layout="@layout/fragment_task_home" >
+        <action
+            android:id="@+id/action_taskHome_to_taskDetail"
+            app:destination="@id/taskDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetail"
+        android:name="com.example.focusfinder.taskDetail"
+        android:label="fragment_task_detail"
+        tools:layout="@layout/fragment_task_detail" />
+    <fragment
+        android:id="@+id/medicineHome"
+        android:name="com.example.focusfinder.medicineHome"
+        android:label="fragment_medicine_home"
+        tools:layout="@layout/fragment_medicine_home" >
+        <action
+            android:id="@+id/action_medicineHome_to_medicineDetail"
+            app:destination="@id/medicineDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/medicineDetail"
+        android:name="com.example.focusfinder.medicineDetail"
+        android:label="fragment_medicine_detail"
+        tools:layout="@layout/fragment_medicine_detail" />
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.focusfinder.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/createAccount"
+        android:name="com.example.focusfinder.createAccount"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.focusfinder.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <action
+        android:id="@+id/action_global_dashboard"
+        app:destination="@id/dashboard" />
+    <action
+        android:id="@+id/action_global_medicineHome"
+        app:destination="@id/medicineHome" />
+    <action
+        android:id="@+id/action_global_timer"
+        app:destination="@id/timer" />
+    <action
+        android:id="@+id/action_global_taskHome"
+        app:destination="@id/taskHome" />
+    <action
+        android:id="@+id/action_global_profile"
+        app:destination="@id/profile" />
+</navigation>
