@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ninac/AndroidStudioProjects/FocusFinder/app/src/main/res/layout/fragment_timer.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable/round_rect_shape.xml" value="0.5095" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_timer.xml" value="0.5635416666666667" />
       </map>
     </option>
   </component>
