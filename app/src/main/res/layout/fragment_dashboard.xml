@@ -17,15 +17,14 @@
         android:orientation="vertical" >
 
 
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Dashboard"
             android:textColor="@color/black"
             android:textSize="36sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,13 +38,18 @@
                 android:text="Medicine Tracker"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
+
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="@drawable/round_rect_shape">
+            android:layout_height="160dp"
+            android:background="@drawable/round_rect_shape"
+            android:elevation="2dp">
+
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -65,8 +69,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:background="@drawable/round_rect_shape">
+            android:layout_height="325dp"
+            android:background="@drawable/round_rect_shape"
+            android:elevation="2dp">
+
+
         </LinearLayout>
 
 
