@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Dashboard"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-
+    android:layout_marginTop="10dp"
+    tools:context=".Dashboard">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -24,7 +13,7 @@
             android:textColor="@color/black"
             android:textSize="36sp"
             android:textStyle="bold"
-            />
+            android:paddingLeft="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:text="Medicine Tracker"
                 android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:paddingLeft="10dp"/>
 
         </LinearLayout>
 
@@ -46,8 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:background="@drawable/round_rect_shape"
-            android:elevation="2dp">
-
+            android:elevation="10dp"
+            android:layout_margin="10dp">
 
 
         </LinearLayout>
@@ -63,7 +53,8 @@
                 android:layout_height="wrap_content"
                 android:text="Upcoming Tasks"
                 android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:paddingLeft="10dp"/>
         </LinearLayout>
 
 
@@ -71,12 +62,13 @@
             android:layout_width="match_parent"
             android:layout_height="325dp"
             android:background="@drawable/round_rect_shape"
-            android:elevation="2dp">
+            android:elevation="10dp"
+            android:layout_margin="10dp">
 
 
         </LinearLayout>
 
 
-    </LinearLayout>
 
-</FrameLayout>
+
+</LinearLayout>

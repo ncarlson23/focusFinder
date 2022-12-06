@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/medicine_item_circle.xml" value="0.5095" />
         <entry key="app/src/main/res/drawable/round_rect_shape.xml" value="0.5095" />
+        <entry key="app/src/main/res/drawable/task_item_shape.xml" value="0.5095" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_task_detail.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_task_home.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_timer.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/medicine_item.xml" value="0.5625" />
+        <entry key="app/src/main/res/layout/task_item.xml" value="0.5625" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.5625" />
       </map>
     </option>
