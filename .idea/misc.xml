@@ -7,7 +7,11 @@
         <entry key="app/src/main/res/drawable/round_rect_shape.xml" value="0.5095" />
         <entry key="app/src/main/res/drawable/task_item_shape.xml" value="0.5095" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_medicine_detail.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/fragment_medicine_home.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_task_detail.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_task_home.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_timer.xml" value="0.5635416666666667" />
@@ -22,5 +26,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.12" />
+      </ProjectState>
+    </option>
   </component>
 </project>
