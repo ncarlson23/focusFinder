@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".medicineDetail"
     android:orientation="vertical"
-    android:layout_marginBottom="45dp"
     android:layout_margin="10dp">
 
 
@@ -28,7 +27,7 @@
             android:layout_gravity="right"
             android:layout_weight="1"
             android:backgroundTint="#FFFFFF"
-            android:src="@android:drawable/btn_star_big_on" />
+            android:src="@drawable/ic_home" />
     </LinearLayout>
 
     <LinearLayout

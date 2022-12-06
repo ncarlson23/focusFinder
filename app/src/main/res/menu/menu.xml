@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
 
     <item
         android:id="@+id/dashboard"
-        android:icon="@android:drawable/ic_lock_idle_alarm"
+        android:icon="@drawable/ic_home"
 
         android:title="Dashboard" />
 
     <item
         android:id="@+id/med_tracker"
-        android:icon="@android:drawable/ic_lock_idle_alarm"
+        android:icon="@drawable/ic_pill"
         android:title="Medicine" />
 
     <item
         android:id="@+id/task_tracker"
-        android:icon="@android:drawable/ic_lock_idle_alarm"
+        android:icon="@drawable/ic_baseline_assignment_24"
         tools:ignore="MenuTitle"
         android:title="Tasks"/>
 
     <item
         android:id="@+id/timer"
-        android:icon="@android:drawable/ic_lock_idle_alarm"
+        android:icon="@drawable/ic_baseline_timer_24"
         tools:ignore="MenuTitle"
         android:title="Timer"/>
 </menu>
