@@ -17,6 +17,13 @@ class focusFinderViewModel: ViewModel() {
     // current task selected
     val currentTask = MutableLiveData<Task?>()
 
+//    // task database
+//    val taskDatabase = MutableLiveData<TaskDB>()
+//
+//    // medicine database
+//    val medicineDatabase = MutableLiveData<MedicineDB>()
+//
+
     init {
         medicineList.value = emptyArray()
         taskList.value = emptyArray()
@@ -24,12 +31,14 @@ class focusFinderViewModel: ViewModel() {
         currentTask.value = null
     }
 
-//    fun getMedicineListFromDB(): Array<Medicine> {
-//
-//    }
+    fun getMedicineListFromDB(): Array<Medicine> {
+        return medicineList.value!!.sortedByDescending { it.overCounterName }.toTypedArray()
 
-//    fun getTaskListFromDB(): Array<Task> {
-//    }
+    }
+
+    fun getTaskListFromDB(): Array<Task> {
+        return taskList.value!!.sortedByDescending { it.date }.toTypedArray()
+    }
 
     fun addNewTask(type :Task){
     }

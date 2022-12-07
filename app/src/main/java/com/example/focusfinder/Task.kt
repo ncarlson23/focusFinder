@@ -8,7 +8,6 @@ import java.util.*
 @Entity(tableName = "taskDB")
 class Task {
     @PrimaryKey
-
     var taskItem = ""
     var date = Date()
     var priority = 0
