@@ -23,7 +23,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/edit_medication_home_button"
+            android:id="@+id/medicine_detail_home_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
@@ -45,7 +45,7 @@
             android:text="Medication Name:" />
 
         <EditText
-            android:id="@+id/edit_medication_medication_name_edit"
+            android:id="@+id/medicine_detail_medication_name_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -59,7 +59,7 @@
             android:text="Generic Name:" />
 
         <EditText
-            android:id="@+id/edit_medication_generic_name_edit"
+            android:id="@+id/medicine_detail_generic_name_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -73,7 +73,7 @@
             android:text="Dosage Amount:" />
 
         <EditText
-            android:id="@+id/edit_medication_dosage_edit"
+            android:id="@+id/medicine_detail_dosage_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -92,47 +92,47 @@
                 android:text="Time of Day:" />
 
             <CheckBox
-                android:id="@+id/edit_medication_morning_checkbox"
+                android:id="@+id/medicine_detail_morning_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Morning" />
 
             <CheckBox
-                android:id="@+id/edit_medication_afternoon_checkbox"
+                android:id="@+id/medicine_detail_afternoon_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Afternoon" />
 
             <CheckBox
-                android:id="@+id/edit_medication_evening_checkbox"
+                android:id="@+id/medicine_detail_evening_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Night" />
         </LinearLayout>
 
         <RadioGroup
-            android:id="@+id/edit_medication_radio_group"
+            android:id="@+id/medicine_detail_radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingTop="20dp">
 
             <RadioButton
-                android:id="@+id/edit_medication_food_radio"
+                android:id="@+id/medicine_detail_food_radio"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="With Food" />
 
             <RadioButton
-                android:id="@+id/edit_medication_no_food_radio"
+                android:id="@+id/medicine_detail_no_food_radio"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Without Food" />
 
             <RadioButton
-                android:id="@+id/edit_medication_either_radio"
+                android:id="@+id/medicine_detail_either_radio"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -146,7 +146,7 @@
             android:text="Additional Notes:" />
 
         <EditText
-            android:id="@+id/edit_medication_notes_edit"
+            android:id="@+id/medicine_detail_notes_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -159,7 +159,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/edit_medication_save_button"
+                android:id="@+id/medicine_detail_save_button"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:text="Save"

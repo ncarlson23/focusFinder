@@ -28,6 +28,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/task_home_home_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
@@ -38,6 +39,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/task_home_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <Button
+        android:id="@+id/task_home_add_button"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:text="Add New Task"

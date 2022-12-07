@@ -3,27 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="500dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="10dp"
     android:background="@drawable/task_item_shape">
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="45dp"
     android:orientation="horizontal"
-    android:background="#A9FFA3">
+    android:background="#79FF6F">
     <TextView
+        android:id="@+id/medicine_item_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Medicine Taken?"
+        android:text="Medicine Taken"
         android:layout_gravity="center"
-        android:paddingRight="10dp"/>
+        android:paddingRight="20dp"
+        android:paddingLeft="15dp"
+        android:textSize="25sp"
+        android:textColor="#000000"
+        android:textStyle="bold"/>
 
     <ImageView
+        android:id="@+id/medicine_item_status_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/stat_notify_error"
+        android:src="@drawable/ic_baseline_done_24"
         android:layout_gravity="center"/>
 
 
@@ -32,53 +38,83 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:paddingBottom="25dp"
+        android:paddingTop="25dp">
 
         <ImageView
-            android:id="@+id/imageView"
+
+            android:id="@+id/medicine_item_icon_one"
             android:layout_width="125dp"
             android:layout_height="125dp"
 
             android:src="@drawable/medicine_item_circle"
-            app:layout_constraintEnd_toStartOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/medicine_item_icon_two"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+
+            android:src="@drawable/medicine_item_circle"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/medicine_item_icon_three"
             android:layout_width="125dp"
             android:layout_height="125dp"
 
             android:src="@drawable/medicine_item_circle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView2" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
-
-            android:src="@drawable/medicine_item_circle"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+
     <TextView
+        android:id="@+id/medicine_item_generic_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Generic Name"/>
+        android:text="Generic Name"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:paddingLeft="15dp"/>
     <TextView
+        android:id="@+id/medicine_item_medicine_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Medicine Name"/>
+        android:text="Medicine Name"
+        android:textSize="24sp"
+        android:textColor="#424242"
+        android:paddingLeft="15dp"
+        android:textStyle="bold|italic"/>
     <TextView
+        android:id="@+id/medicine_item_dosage_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dosage Amount"/>
+        android:text="Dosage Amount"
+        android:textSize="20dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
     <TextView
+        android:id="@+id/medicine_item_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Additional Notes"/>
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:text="Additional Notes..."
+        android:paddingBottom="25dp"/>
 
 </LinearLayout>

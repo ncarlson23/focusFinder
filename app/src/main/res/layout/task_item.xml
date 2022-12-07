@@ -9,6 +9,7 @@
     android:elevation="10dp">
 
     <CheckBox
+        android:id="@+id/task_item_checkbox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -26,6 +27,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/task_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TASK"
@@ -35,6 +37,7 @@
                 android:paddingRight="10dp"/>
 
             <TextView
+                android:id="@+id/task_item_priority"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#AE0000"
@@ -46,11 +49,13 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/task_item_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date"/>
 
         <TextView
+            android:id="@+id/task_item_notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#474747"
@@ -59,13 +64,12 @@
 
     </LinearLayout>
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageButton
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_weight="1"
-        android:src="@android:drawable/ic_menu_edit"
-        android:layout_gravity="center"/>
-
-
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/ic_baseline_edit_24" />
 
 </LinearLayout>
