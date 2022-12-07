@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class taskHome : Fragment() {
 
-    lateinit var task_home_home_button : ImageButton
+    lateinit var task_home_home_button : Button
     lateinit var task_home_recycler_view : RecyclerView
     lateinit var task_home_add_button : Button
 

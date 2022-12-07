@@ -16,8 +16,8 @@ class taskDetail : Fragment() {
 
     lateinit var task_detail_home_button : Button
     lateinit var task_detail_task_name : EditText
-    lateinit var task_detail_calendar_button : ImageButton
-    lateinit var task_detail_time_button : ImageButton
+    lateinit var task_detail_calendar_button : Button
+    lateinit var task_detail_time_button : Button
     lateinit var task_detail_low_radio : RadioButton
     lateinit var task_detail_med_radio : RadioButton
     lateinit var task_detail_high_radio : RadioButton

@@ -25,6 +25,8 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
+
+
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/medicine_home_home_button"
             android:layout_width="0dp"
