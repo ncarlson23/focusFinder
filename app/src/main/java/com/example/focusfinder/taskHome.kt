@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 class taskHome : Fragment() {
@@ -21,6 +22,15 @@ class taskHome : Fragment() {
         task_home_home_button = view.findViewById(R.id.task_home_home_button)
         task_home_recycler_view = view.findViewById(R.id.task_home_recycler_view)
         task_home_add_button = view.findViewById(R.id.task_home_add_button)
+
+        task_home_home_button.setOnClickListener {
+            findNavController().navigate(R.id.action_global_dashboard)
+        }
+
+        task_home_add_button.setOnClickListener {
+            // do VM and DB stuff
+            findNavController().navigate(R.id.action_taskHome_to_taskDetail)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

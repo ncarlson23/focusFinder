@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -21,6 +22,15 @@ class medicineHome : Fragment() {
         medicine_home_add_button = view.findViewById(R.id.medicine_home_add_button)
         medicine_home_recycler_view = view.findViewById(R.id.medicine_home_recycler_view)
         medicine_home_home_button = view.findViewById(R.id.medicine_home_home_button)
+
+        medicine_home_home_button.setOnClickListener {
+            findNavController().navigate(R.id.action_global_dashboard)
+        }
+
+        medicine_home_add_button.setOnClickListener {
+            // do VM and DB stuff
+            findNavController().navigate(R.id.action_medicineHome_to_medicineDetail)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

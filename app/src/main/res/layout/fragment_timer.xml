@@ -18,16 +18,14 @@
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:layout_weight="11"/>
-
-        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_weight="10"/>
+        <android.widget.Button
+            android:id="@+id/timer_home_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
-            android:backgroundTint="#FFFFFF"
-            android:src="@drawable/ic_home"
-
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:background="@drawable/ic_home" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

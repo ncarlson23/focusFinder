@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.RadioButton
+import androidx.navigation.fragment.findNavController
 
 //https://www.digitalocean.com/community/tutorials/android-date-time-picker-dialog
 
@@ -36,6 +37,14 @@ class taskDetail : Fragment() {
         task_detail_high_radio = view.findViewById(R.id.task_detail_high_radio)
         task_detail_notes = view.findViewById(R.id.task_detail_notes)
         task_detail_save_button = view.findViewById(R.id.task_detail_save_button)
+
+        task_detail_home_button.setOnClickListener {
+            findNavController().navigate(R.id.action_global_dashboard)
+        }
+
+        task_detail_save_button.setOnClickListener {
+            findNavController().navigate(R.id.action_global_taskHome)
+        }
 
     }
 
