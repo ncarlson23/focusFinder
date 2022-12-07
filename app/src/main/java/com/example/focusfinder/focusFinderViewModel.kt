@@ -17,12 +17,12 @@ class focusFinderViewModel: ViewModel() {
     // current task selected
     val currentTask = MutableLiveData<Task?>()
 
-//    // task database
-//    val taskDatabase = MutableLiveData<TaskDB>()
-//
-//    // medicine database
-//    val medicineDatabase = MutableLiveData<MedicineDB>()
-//
+    // task database
+    val taskDatabase = MutableLiveData<TaskDB>()
+
+    // medicine database
+    val medicineDatabase = MutableLiveData<MedicineDB>()
+
 
     init {
         medicineList.value = emptyArray()
@@ -32,15 +32,20 @@ class focusFinderViewModel: ViewModel() {
     }
 
     fun getMedicineListFromDB(): Array<Medicine> {
-        return medicineList.value!!.sortedByDescending { it.overCounterName }.toTypedArray()
+        medicineList.value = medicineDatabase.value?.medicineDAO()?.getMedicineFromDB()
+
+//        return medicineList.value!!.sortedByDescending { it.overCounterName }.toTypedArray()
 
     }
 
     fun getTaskListFromDB(): Array<Task> {
-        return taskList.value!!.sortedByDescending { it.date }.toTypedArray()
+        taskList.value = taskDatabase.value?.TaskDAO()?.getTaskListFromDB()
+
+//        return taskList.value!!.sortedByDescending { it.date }.toTypedArray()
     }
 
     fun addNewTask(type :Task){
+
     }
 
     fun addNewMedicine(type: Medicine) {

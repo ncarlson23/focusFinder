@@ -10,8 +10,10 @@ interface TaskDAO {
 
     // return list of all tasks
     @Query ("SELECT * FROM taskDB")
-    fun getTaskListFromDB():List<Task>
+    fun getTaskListFromDB():Array<Task>
 
-
+    // delete task item based on ID
+    @Query("DELETE FROM taskDB WHERE taskID =:tID")
+    fun deleteTaskFromDB(tID: String)
 
 }

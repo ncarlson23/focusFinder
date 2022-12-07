@@ -14,6 +14,12 @@ interface MedicineDAO {
 
     // return list of all tasks
     @Query("SELECT * FROM medicineDB")
-    fun getTaskMedicineFromDB():List<Medicine>
+    fun getMedicineFromDB():Array<Medicine>
+
+    // delete medicine item based on ID
+    @Query("DELETE FROM medicineDB WHERE medicineID=:medID")
+    fun deleteMedicineFromDB(medID: String)
+
+
 
 }
