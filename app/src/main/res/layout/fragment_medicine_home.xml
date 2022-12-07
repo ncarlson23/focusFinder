@@ -11,7 +11,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp">
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="0dp"
@@ -23,6 +26,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/medicine_home_home_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
@@ -33,6 +37,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/medicine_home_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
+        android:id="@+id/medicine_home_add_button"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:text="Add New Medicine"
