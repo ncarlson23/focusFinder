@@ -1,5 +1,7 @@
 package com.example.focusfinder
 
+import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -25,6 +27,7 @@ class focusFinderViewModel: ViewModel() {
 
 
     init {
+
         medicineList.value = emptyArray()
         taskList.value = emptyArray()
         currentMedicine.value = null
@@ -35,12 +38,21 @@ class focusFinderViewModel: ViewModel() {
         medicineList.value = medicineDatabase.value?.medicineDAO()?.getMedicineFromDB()
     }
 
-    fun getTaskListFromDB(type:Array<Task>) {
+    fun getTaskListFromDB() {
         taskList.value = taskDatabase.value?.TaskDAO()?.getTaskListFromDB()
+        Log.d("TASK VALUE", taskList.value.toString())
+        if (taskList.value == null) {
+            taskList.value = emptyArray()
+        }
     }
 
     fun addNewTask(type :Task){
+        taskDatabase.value?.TaskDAO()?.insert(type)
 
+    }
+
+    fun updateTask(task:Task) {
+        taskDatabase.value?.TaskDAO()?.updateTask(task.taskItem, task.date, task.priority, task.note, task.taskID)
     }
 
     fun addNewMedicine(type: Medicine) {

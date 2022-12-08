@@ -2,13 +2,24 @@ package com.example.focusfinder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
+    val viewModel : focusFinderViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        viewModel.taskDatabase.value = TaskDB.getDBObject(applicationContext)
+        viewModel.medicineDatabase.value = MedicineDB.getDBObject(applicationContext)
+
+
 
         findViewById<BottomNavigationView>(R.id.bottom_menu).setOnItemSelectedListener {
             if (it.itemId == R.id.dashboard) {
