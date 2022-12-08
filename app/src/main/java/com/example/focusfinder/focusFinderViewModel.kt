@@ -31,17 +31,12 @@ class focusFinderViewModel: ViewModel() {
         currentTask.value = null
     }
 
-    fun getMedicineListFromDB(): Array<Medicine> {
+    fun getMedicineListFromDB()  {
         medicineList.value = medicineDatabase.value?.medicineDAO()?.getMedicineFromDB()
-
-//        return medicineList.value!!.sortedByDescending { it.overCounterName }.toTypedArray()
-
     }
 
-    fun getTaskListFromDB(): Array<Task> {
+    fun getTaskListFromDB(type:Array<Task>) {
         taskList.value = taskDatabase.value?.TaskDAO()?.getTaskListFromDB()
-
-//        return taskList.value!!.sortedByDescending { it.date }.toTypedArray()
     }
 
     fun addNewTask(type :Task){

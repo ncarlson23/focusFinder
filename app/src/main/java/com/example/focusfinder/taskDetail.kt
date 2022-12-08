@@ -25,6 +25,8 @@ class taskDetail : Fragment() {
     lateinit var task_detail_notes : EditText
     lateinit var task_detail_save_button : Button
 
+    lateinit var db:TaskDB
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -38,11 +40,23 @@ class taskDetail : Fragment() {
         task_detail_notes = view.findViewById(R.id.task_detail_notes)
         task_detail_save_button = view.findViewById(R.id.task_detail_save_button)
 
+        db = TaskDB.getDBObject(requireContext())!!
+
         task_detail_home_button.setOnClickListener {
             findNavController().navigate(R.id.action_global_dashboard)
         }
 
+
+        // just trying with name and notes, deal with buttons later
         task_detail_save_button.setOnClickListener {
+            if(task_detail_task_name.text.isNotEmpty()) {
+                val task = Task()
+                task.taskItem = task_detail_task_name.text.toString()
+                task.note = task_detail_notes.text.toString()
+                task_detail_task_name.setText(task.taskItem)
+                task_detail_notes.setText(task.note)
+                db.TaskDAO().insert(task)
+            }
             findNavController().navigate(R.id.action_global_taskHome)
         }
 
