@@ -37,21 +37,19 @@ class taskHome : Fragment() {
         task_home_add_button = view.findViewById(R.id.task_home_add_button)
 
 
-        // turn into delete lambda?
+
         val taskClickLambda: (Task) -> Unit = {
             viewModel.currentTask.value = it
             findNavController().navigate(R.id.action_taskHome_to_taskDetail)
-
-
         }
 
         val taskDeleteLambda: (Int) -> Unit = {
             viewModel.deleteTask(it)
-            viewModel.getTaskListFromDB()
+
         }
 
 
-            val touchHelper = TouchHelper(taskDeleteLambda)
+        val touchHelper = TouchHelper(taskDeleteLambda)
         ItemTouchHelper(touchHelper).attachToRecyclerView(task_home_recycler_view)
            // findNavController().navigate(R.id.action_taskHome_to_taskDetail)
 
@@ -59,16 +57,15 @@ class taskHome : Fragment() {
 
         // recycler view setup
         viewManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        viewAdapter = viewModel.taskList.value?.let {
-            RecyclerViewAdapter(
-                it,
-                viewModel
-            )
-        }!!  //having an issue
+        viewAdapter = viewModel.taskList.value?.let { RecyclerViewAdapter(it, viewModel) }!!  //having an issue
         viewAdapter.clickLambda = taskClickLambda
-
         task_home_recycler_view.layoutManager = viewManager
         task_home_recycler_view.adapter = viewAdapter
+
+        viewModel.taskList.observe(viewLifecycleOwner, {
+            viewAdapter.taskData = it
+            viewAdapter.notifyDataSetChanged()
+        })
 
         // nav buttons
         task_home_home_button.setOnClickListener {

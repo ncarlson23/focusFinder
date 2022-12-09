@@ -62,7 +62,8 @@ class focusFinderViewModel: ViewModel() {
         }
 //        if(task !=null) {
 //            taskDatabase.value?.
-
+        getTaskListFromDB()
+        taskList.postValue(taskList.value)
     }
 
     fun addNewMedicine(type: Medicine) {
