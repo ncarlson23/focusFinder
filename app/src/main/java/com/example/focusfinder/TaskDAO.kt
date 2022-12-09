@@ -16,6 +16,6 @@ interface TaskDAO {
     @Query("DELETE FROM taskDB WHERE taskID =:tID")
     fun deleteTaskFromDB(tID: String)
 
-    @Query("UPDATE taskDB SET taskItem=:taskItem, date=:date, priority=:priority, note=:note WHERE taskID=:taskID")
-    fun updateTask(taskItem:String, date:String, priority: Int, note:String, taskID:String)
+    @Query("UPDATE taskDB SET taskItem=:taskItem, date=:date, priority=:priority, note=:note, checked=:checked WHERE taskID=:taskID")
+    fun updateTask(taskItem:String, date:String, priority: Int, note:String, taskID:String, checked:Boolean)
 }

@@ -52,7 +52,7 @@ class focusFinderViewModel: ViewModel() {
     }
 
     fun updateTask(task:Task) {
-        taskDatabase.value?.TaskDAO()?.updateTask(task.taskItem, task.date, task.priority, task.note, task.taskID)
+        taskDatabase.value?.TaskDAO()?.updateTask(task.taskItem, task.date, task.priority, task.note, task.taskID, task.checked)
     }
 
     fun deleteTask(taskPosition: Int) {

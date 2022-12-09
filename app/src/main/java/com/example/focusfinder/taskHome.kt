@@ -18,6 +18,7 @@ class taskHome : Fragment() {
     lateinit var task_home_recycler_view: RecyclerView
     lateinit var task_home_add_button: Button
 
+
     lateinit var viewManager: RecyclerView.LayoutManager
     lateinit var viewAdapter: RecyclerViewAdapter
 
@@ -30,6 +31,20 @@ class taskHome : Fragment() {
         viewModel.getTaskListFromDB();
 
         // do sorting here
+// first sort by priority
+        // sort same list by isChecked() or not
+
+        viewModel.taskList.value!!.sortByDescending{
+            it.priority
+        }
+
+        viewModel.taskList.value!!.sortBy {
+            it.checked
+        }
+
+
+
+
 
 
         task_home_home_button = view.findViewById(R.id.task_home_home_button)
@@ -72,6 +87,7 @@ class taskHome : Fragment() {
         }
 
         task_home_add_button.setOnClickListener {
+          viewModel.currentTask.value = null // so that when you add a new task the form is blank
             findNavController().navigate(R.id.action_taskHome_to_taskDetail)
         }
 

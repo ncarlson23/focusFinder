@@ -43,6 +43,18 @@ class taskDetail : Fragment() {
         if (viewModel.currentTask.value != null) {
             task_detail_task_name.setText(viewModel.currentTask.value!!.taskItem)
             task_detail_notes.setText(viewModel.currentTask.value!!.note)
+
+            if (viewModel.currentTask.value!!.priority == 1) {
+                task_detail_low_radio.isChecked = true
+            }
+            else if (viewModel.currentTask.value!!.priority == 2) {
+                task_detail_med_radio.isChecked = true
+            }
+            else if (viewModel.currentTask.value!!.priority == 3) {
+                task_detail_high_radio.isChecked = true
+            }
+
+
         }
 
 

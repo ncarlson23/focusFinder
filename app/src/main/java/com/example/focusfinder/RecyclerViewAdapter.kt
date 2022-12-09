@@ -45,7 +45,7 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
     ) : RecyclerView.ViewHolder(itemView) {
         fun bind(task: Task, clickLambda: (Task) -> Unit) {
 
-            itemView.findViewById<CheckBox>(R.id.task_item_checkbox).isChecked = false
+            itemView.findViewById<CheckBox>(R.id.task_item_checkbox).isChecked = task.checked
             itemView.findViewById<TextView>(R.id.task_item_name).text = task.taskItem
 
             var p = ""
@@ -59,11 +59,31 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
             itemView.findViewById<TextView>(R.id.task_item_notes).text = task.note
 
             itemView.findViewById<Button>(R.id.task_item_edit_button).setOnClickListener {
-                taskViewModel.currentTask.value = task
-                //issue with navigation here???
-             //   findNavController().navigate(R.id.action_taskHome_to_taskDetail)
+                clickLambda(task)
+            }
 
+            var checkbox = itemView.findViewById<CheckBox>(R.id.task_item_checkbox)
 
+            itemView.findViewById<CheckBox>(R.id.task_item_checkbox).setOnClickListener{
+                if (checkbox.isChecked) {
+                    task.checked = true
+                    taskViewModel.updateTask(task)
+                }
+                else {
+                    task.checked = false
+                    taskViewModel.updateTask(task)
+                }
+                taskViewModel.getTaskListFromDB()
+
+                taskViewModel.taskList.value!!.sortByDescending{
+                    it.priority
+                }
+
+                taskViewModel.taskList.value!!.sortBy {
+                    it.checked
+                }
+
+                taskViewModel.taskList.postValue(taskViewModel.taskList.value)
             }
 
             itemView.setOnClickListener {

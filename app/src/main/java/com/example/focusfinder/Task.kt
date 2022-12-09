@@ -13,5 +13,6 @@ class Task {
     var date = ""
     var priority = 0
     var note = ""
+    var checked = false
 
 }
