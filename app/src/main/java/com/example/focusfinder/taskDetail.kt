@@ -28,11 +28,8 @@ class taskDetail : Fragment() {
     lateinit var task_detail_save_button : Button
     val viewModel : focusFinderViewModel by activityViewModels()
 
-//    lateinit var db:TaskDB
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         task_detail_home_button = view.findViewById(R.id.task_detail_home_button)
         task_detail_task_name = view.findViewById(R.id.task_detail_task_name)

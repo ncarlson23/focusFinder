@@ -6,19 +6,18 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
-import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import org.w3c.dom.Text
 
 // this is recycler for task list
 
 class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFinderViewModel) :
     RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder>() {
-
-//    val viewModel : focusFinderViewModel by viewModel()
+    
 
     // click lambda
-    lateinit var clickLambda: (Task) -> Unit
+    lateinit var clickLambda: (Int) -> Unit
 
 
     override fun onCreateViewHolder(
@@ -42,8 +41,9 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
     }
 
     inner class RecyclerViewHolder(
-        itemView: View, val clickLambda: (Task) -> Unit) : RecyclerView.ViewHolder(itemView) {
-        fun bind(task: Task, clickLambda: (Task) -> Unit) {
+        itemView: View, val clickLambda: (Int) -> Unit
+    ) : RecyclerView.ViewHolder(itemView) {
+        fun bind(task: Task, clickLambda: (Int) -> Unit) {
 
             itemView.findViewById<CheckBox>(R.id.task_item_checkbox).isChecked = false
             itemView.findViewById<TextView>(R.id.task_item_name).text = task.taskItem
@@ -51,12 +51,16 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
             itemView.findViewById<TextView>(R.id.task_item_date).text = task.date
             itemView.findViewById<TextView>(R.id.task_item_notes).text = task.note
 
-//            itemView.findViewById<Button>(R.id.task_item_edit_button).setOnClickListener {
-//                taskViewModel.currentTask.value = task
-//            }
+            itemView.findViewById<Button>(R.id.task_item_edit_button).setOnClickListener {
+                taskViewModel.currentTask.value = task
+                //issue with navigation here???
+             //   findNavController().navigate(R.id.action_taskHome_to_taskDetail)
+
+
+            }
 
             itemView.setOnClickListener {
-                clickLambda(task)
+                clickLambda(position)
             }
 
 

@@ -1,7 +1,6 @@
 package com.example.focusfinder
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -38,10 +38,16 @@ class taskHome : Fragment() {
 
 
         // turn into delete lambda?
-        val taskClickLambda: (Task) -> Unit = {
-            viewModel.currentTask.value = it
-            findNavController().navigate(R.id.action_taskHome_to_taskDetail)
+        val taskClickLambda: (Int) -> Unit = {
+           // viewModel.currentTask.value = it
+            viewModel.deleteTask(it)
         }
+         //   viewAdapter = RecyclerViewAdapter(Array())
+
+            val touchHelper = TouchHelper(taskClickLambda)
+        ItemTouchHelper(touchHelper).attachToRecyclerView(task_home_recycler_view)
+           // findNavController().navigate(R.id.action_taskHome_to_taskDetail)
+
 
 
         // recycler view setup
@@ -65,6 +71,7 @@ class taskHome : Fragment() {
         task_home_add_button.setOnClickListener {
             findNavController().navigate(R.id.action_taskHome_to_taskDetail)
         }
+
     }
 
 

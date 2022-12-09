@@ -55,11 +55,16 @@ class focusFinderViewModel: ViewModel() {
         taskDatabase.value?.TaskDAO()?.updateTask(task.taskItem, task.date, task.priority, task.note, task.taskID)
     }
 
+    fun deleteTask(taskPosition: Int) {
+        val task = taskList.value?.get(taskPosition)
+//        if(task !=null) {
+//            taskDatabase.value?.
+
+    }
+
     fun addNewMedicine(type: Medicine) {
     }
 
-    fun deleteTask(type: Task){
-    }
 
     fun deleteMedicine(type: Medicine) {
     }
