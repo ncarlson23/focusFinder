@@ -38,13 +38,20 @@ class taskHome : Fragment() {
 
 
         // turn into delete lambda?
-        val taskClickLambda: (Int) -> Unit = {
-           // viewModel.currentTask.value = it
-            viewModel.deleteTask(it)
-        }
-         //   viewAdapter = RecyclerViewAdapter(Array())
+        val taskClickLambda: (Task) -> Unit = {
+            viewModel.currentTask.value = it
+            findNavController().navigate(R.id.action_taskHome_to_taskDetail)
 
-            val touchHelper = TouchHelper(taskClickLambda)
+
+        }
+
+        val taskDeleteLambda: (Int) -> Unit = {
+            viewModel.deleteTask(it)
+            viewModel.getTaskListFromDB()
+        }
+
+
+            val touchHelper = TouchHelper(taskDeleteLambda)
         ItemTouchHelper(touchHelper).attachToRecyclerView(task_home_recycler_view)
            // findNavController().navigate(R.id.action_taskHome_to_taskDetail)
 

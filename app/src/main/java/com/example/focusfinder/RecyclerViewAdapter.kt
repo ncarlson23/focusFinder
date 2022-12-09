@@ -17,7 +17,7 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
     
 
     // click lambda
-    lateinit var clickLambda: (Int) -> Unit
+    lateinit var clickLambda: (Task) -> Unit
 
 
     override fun onCreateViewHolder(
@@ -41,9 +41,9 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
     }
 
     inner class RecyclerViewHolder(
-        itemView: View, val clickLambda: (Int) -> Unit
+        itemView: View, val clickLambda: (Task) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
-        fun bind(task: Task, clickLambda: (Int) -> Unit) {
+        fun bind(task: Task, clickLambda: (Task) -> Unit) {
 
             itemView.findViewById<CheckBox>(R.id.task_item_checkbox).isChecked = false
             itemView.findViewById<TextView>(R.id.task_item_name).text = task.taskItem
@@ -60,7 +60,7 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
             }
 
             itemView.setOnClickListener {
-                clickLambda(position)
+                clickLambda(task)
             }
 
 

@@ -57,6 +57,9 @@ class focusFinderViewModel: ViewModel() {
 
     fun deleteTask(taskPosition: Int) {
         val task = taskList.value?.get(taskPosition)
+        if (task != null) {
+            taskDatabase.value?.TaskDAO()?.deleteTaskFromDB(task.taskID)
+        }
 //        if(task !=null) {
 //            taskDatabase.value?.
 
