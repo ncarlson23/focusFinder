@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.RadioButton
+import android.widget.*
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 
@@ -26,6 +23,7 @@ class taskDetail : Fragment() {
     lateinit var task_detail_high_radio : RadioButton
     lateinit var task_detail_notes : EditText
     lateinit var task_detail_save_button : Button
+    lateinit var radio_group : RadioGroup
     val viewModel : focusFinderViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,6 +38,7 @@ class taskDetail : Fragment() {
         task_detail_high_radio = view.findViewById(R.id.task_detail_high_radio)
         task_detail_notes = view.findViewById(R.id.task_detail_notes)
         task_detail_save_button = view.findViewById(R.id.task_detail_save_button)
+        radio_group = view.findViewById(R.id.task_detail_priority_radio_group)
 
         if (viewModel.currentTask.value != null) {
             task_detail_task_name.setText(viewModel.currentTask.value!!.taskItem)
@@ -60,7 +59,17 @@ class taskDetail : Fragment() {
                     task.taskItem = task_detail_task_name.text.toString()
                     task.note = task_detail_notes.text.toString()
                     task.date = "date"
-                    task.priority = 1
+                    task.priority = if(task_detail_low_radio.isChecked) {
+                        1
+                    } else if(task_detail_med_radio.isChecked) {
+                        2
+                    } else if (task_detail_high_radio.isChecked) {
+                        3
+                    } else {
+                        0
+                    }
+
+
 
                     viewModel.addNewTask(task)
                 }
@@ -70,7 +79,16 @@ class taskDetail : Fragment() {
                 // upodate value in database
                 viewModel.currentTask.value?.taskItem = task_detail_task_name.text.toString()
                 viewModel.currentTask.value?.date =  "update Date"
-                viewModel.currentTask.value?.priority = 3
+                viewModel.currentTask.value?.priority =
+                    if(task_detail_low_radio.isChecked) {
+                        1
+                    } else if(task_detail_med_radio.isChecked) {
+                        2
+                    } else if (task_detail_high_radio.isChecked) {
+                        3
+                    } else {
+                        0
+                    }
                 viewModel.currentTask.value?.note = task_detail_notes.text.toString()
                 viewModel.updateTask(viewModel.currentTask.value!!)
             }
@@ -80,6 +98,7 @@ class taskDetail : Fragment() {
         }
 
     }
+
 
 
 
