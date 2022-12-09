@@ -20,7 +20,7 @@
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:layout_weight="10"/>
+            android:layout_weight="9"/>
 
         <android.widget.Button
             android:id="@+id/task_detail_home_button"

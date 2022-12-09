@@ -45,7 +45,6 @@ class taskHome : Fragment() {
 
         val taskDeleteLambda: (Int) -> Unit = {
             viewModel.deleteTask(it)
-
         }
 
 

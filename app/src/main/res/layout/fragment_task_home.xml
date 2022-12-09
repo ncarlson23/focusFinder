@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
+            android:layout_weight="9"
             android:text="Tasks"
             android:textColor="#000000"
             android:textSize="30sp"

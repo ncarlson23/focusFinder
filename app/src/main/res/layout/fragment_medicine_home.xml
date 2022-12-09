@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
+            android:layout_weight="9"
             android:text="Your Medications"
             android:textColor="#000000"
             android:textSize="30sp"
