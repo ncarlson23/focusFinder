@@ -47,7 +47,14 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
 
             itemView.findViewById<CheckBox>(R.id.task_item_checkbox).isChecked = false
             itemView.findViewById<TextView>(R.id.task_item_name).text = task.taskItem
-            itemView.findViewById<TextView>(R.id.task_item_priority).text = "!"
+
+            var p = ""
+            if (task.priority == 1)  p = "!"
+            if (task.priority == 2)  p = "!"
+            if (task.priority == 3)  p = "!"
+
+
+            itemView.findViewById<TextView>(R.id.task_item_priority).text = p
             itemView.findViewById<TextView>(R.id.task_item_date).text = task.date
             itemView.findViewById<TextView>(R.id.task_item_notes).text = task.note
 
