@@ -50,8 +50,8 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
 
             var p = ""
             if (task.priority == 1)  p = "!"
-            if (task.priority == 2)  p = "!"
-            if (task.priority == 3)  p = "!"
+            if (task.priority == 2)  p = "!!"
+            if (task.priority == 3)  p = "!!!"
 
 
             itemView.findViewById<TextView>(R.id.task_item_priority).text = p
