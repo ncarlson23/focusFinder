@@ -11,6 +11,7 @@ class Task {
     var taskID : String = UUID.randomUUID().toString()
     var taskItem = ""
     var date = ""
+    var time = ""
     var priority = 0
     var note = ""
     var checked = false

@@ -157,7 +157,8 @@ class taskDetail : Fragment() {
                     val task = Task()
                     task.taskItem = task_detail_task_name.text.toString()
                     task.note = task_detail_notes.text.toString()
-                    task.date = formattedTime + "," + sdf.toString()
+                    task.date = formattedDate
+                    task.time = formattedTime
                     task.priority = if(task_detail_low_radio.isChecked) {
                         1
                     } else if(task_detail_med_radio.isChecked) {
@@ -175,7 +176,8 @@ class taskDetail : Fragment() {
             else {
                 // update value in database
                 viewModel.currentTask.value?.taskItem = task_detail_task_name.text.toString()
-                viewModel.currentTask.value?.date =  formattedTime + "," + sdf.toString()
+                viewModel.currentTask.value?.date =  formattedDate
+                viewModel.currentTask.value?.time = formattedTime
                 viewModel.currentTask.value?.priority =
                     if(task_detail_low_radio.isChecked) {
                         1
