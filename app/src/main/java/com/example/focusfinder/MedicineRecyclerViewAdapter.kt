@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import org.w3c.dom.Text
 
 class MedicineRecyclerViewAdapter(
     var medData: Array<Medicine>,
@@ -36,6 +37,16 @@ class MedicineRecyclerViewAdapter(
         fun bind(medicine: Medicine) {
 
             itemView.findViewById<TextView>(R.id.medicine_item_generic_name).text = medicine.overCounterName
+            itemView.findViewById<TextView>(R.id.medicine_item_medicine_name).text = medicine.officialName
+            itemView.findViewById<TextView>(R.id.medicine_item_dosage_amount).text = medicine.dosage
+            itemView.findViewById<TextView>(R.id.medicine_item_notes).text = medicine.dosage
+
+            var numTimes = 0
+            if (medicine.morning) numTimes++
+            if (medicine.afternoon) numTimes++
+            if (medicine.evening) numTimes++
+            itemView.findViewById<TextView>(R.id.medicine_item_icon_one).text = numTimes.toString()
+
 
 
         }

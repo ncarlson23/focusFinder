@@ -36,6 +36,7 @@ class focusFinderViewModel: ViewModel() {
 
     fun getMedicineListFromDB()  {
         medicineList.value = medicineDatabase.value?.medicineDAO()?.getMedicineFromDB()
+        medicineList.value?.reverse()
     }
 
     fun getTaskListFromDB() {
