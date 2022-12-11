@@ -52,7 +52,7 @@ class RecyclerViewAdapter(var taskData: Array<Task>, val taskViewModel: focusFin
 
 
             itemView.findViewById<TextView>(R.id.task_item_priority).text = p
-            itemView.findViewById<TextView>(R.id.task_item_date).text = task.date + "@ " + task.time
+            itemView.findViewById<TextView>(R.id.task_item_date).text = task.date + " @ " + task.time
             itemView.findViewById<TextView>(R.id.task_item_notes).text = task.note
 
             itemView.findViewById<Button>(R.id.task_item_edit_button).setOnClickListener {

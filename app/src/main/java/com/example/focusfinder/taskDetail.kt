@@ -71,16 +71,21 @@ class taskDetail : Fragment() {
         }
 
         var formattedDate = ""
-        var sdf = SimpleDateFormat()
+        var sdf = ""
         var cal = Calendar.getInstance()
-        val datePickerDialogListener: DatePickerDialog.OnDateSetListener = object : DatePickerDialog.OnDateSetListener {
+        val dateSetListener: DatePickerDialog.OnDateSetListener = object : DatePickerDialog.OnDateSetListener {
             override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
-                cal.set(Calendar.YEAR, p1)
-                cal.set(Calendar.MONTH, p2)
-                cal.set(Calendar.DAY_OF_MONTH, p3)
+                 cal.set(Calendar.YEAR, p1)
+                 cal.set(Calendar.MONTH, p2)
+                 cal.set(Calendar.DAY_OF_MONTH, p3)
 
                 formattedDate = "dd/mm/yyyy"
-                sdf = SimpleDateFormat(formattedDate,Locale.US)
+
+//                cal.toString()
+                Log.d("PENIS", formattedDate)
+              //  formattedDate = "dd/mm/yyyy"
+               sdf = SimpleDateFormat(formattedDate,Locale.US).format(cal.time)
+
 
             }
         }
@@ -140,7 +145,7 @@ class taskDetail : Fragment() {
         task_detail_calendar_button.setOnClickListener{
             val datePicker : DatePickerDialog = DatePickerDialog(
                 this.requireContext(),
-                datePickerDialogListener,
+                dateSetListener,
                 2022,
                 12,
                 12,
