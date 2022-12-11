@@ -1,5 +1,6 @@
 package com.example.focusfinder
 
+import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import java.text.SimpleDateFormat
+import java.util.*
 
 //https://www.digitalocean.com/community/tutorials/android-date-time-picker-dialog
 
@@ -67,9 +70,25 @@ class taskDetail : Fragment() {
             findNavController().navigate(R.id.action_global_dashboard)
         }
 
+        var formattedDate = ""
+        var sdf = SimpleDateFormat()
+        var cal = Calendar.getInstance()
+        val datePickerDialogListener: DatePickerDialog.OnDateSetListener = object : DatePickerDialog.OnDateSetListener {
+            override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
+                cal.set(Calendar.YEAR, p1)
+                cal.set(Calendar.MONTH, p2)
+                cal.set(Calendar.DAY_OF_MONTH, p3)
+
+                formattedDate = "dd/mm/yyyy"
+                sdf = SimpleDateFormat(formattedDate,Locale.US)
+
+            }
+        }
+
+
+
+
         var formattedTime = ""
-
-
         val timePickerDialogListener: TimePickerDialog.OnTimeSetListener = object : TimePickerDialog.OnTimeSetListener {
             override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
                 formattedTime = when {
@@ -106,7 +125,6 @@ class taskDetail : Fragment() {
 
         }
 
-        // TIMING FUCKING WORKS LET'S GO
 
         task_detail_time_button.setOnClickListener{
             val timePicker : TimePickerDialog = TimePickerDialog(
@@ -119,6 +137,18 @@ class taskDetail : Fragment() {
             timePicker.show()
         }
 
+        task_detail_calendar_button.setOnClickListener{
+            val datePicker : DatePickerDialog = DatePickerDialog(
+                this.requireContext(),
+                datePickerDialogListener,
+                2022,
+                12,
+                12,
+
+            )
+            datePicker.show()
+        }
+
 
         // just trying with name and notes, deal with buttons later
         task_detail_save_button.setOnClickListener {
@@ -127,7 +157,7 @@ class taskDetail : Fragment() {
                     val task = Task()
                     task.taskItem = task_detail_task_name.text.toString()
                     task.note = task_detail_notes.text.toString()
-                    task.date = formattedTime
+                    task.date = formattedTime + "," + sdf.toString()
                     task.priority = if(task_detail_low_radio.isChecked) {
                         1
                     } else if(task_detail_med_radio.isChecked) {
@@ -145,7 +175,7 @@ class taskDetail : Fragment() {
             else {
                 // update value in database
                 viewModel.currentTask.value?.taskItem = task_detail_task_name.text.toString()
-                viewModel.currentTask.value?.date =  formattedTime
+                viewModel.currentTask.value?.date =  formattedTime + "," + sdf.toString()
                 viewModel.currentTask.value?.priority =
                     if(task_detail_low_radio.isChecked) {
                         1
