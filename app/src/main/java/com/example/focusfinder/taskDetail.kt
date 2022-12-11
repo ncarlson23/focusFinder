@@ -1,5 +1,6 @@
 package com.example.focusfinder
 
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,7 +17,7 @@ class taskDetail : Fragment() {
 
     lateinit var task_detail_home_button : Button
     lateinit var task_detail_task_name : EditText
-    lateinit var task_detail_calendar_button : Button
+    lateinit var task_detail_calendar_button : Button  // date
     lateinit var task_detail_time_button : Button
     lateinit var task_detail_low_radio : RadioButton
     lateinit var task_detail_med_radio : RadioButton
@@ -24,6 +25,8 @@ class taskDetail : Fragment() {
     lateinit var task_detail_notes : EditText
     lateinit var task_detail_save_button : Button
     lateinit var radio_group : RadioGroup
+    lateinit var time_button : Button  //time
+
     val viewModel : focusFinderViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,13 +35,15 @@ class taskDetail : Fragment() {
         task_detail_home_button = view.findViewById(R.id.task_detail_home_button)
         task_detail_task_name = view.findViewById(R.id.task_detail_task_name)
         task_detail_calendar_button = view.findViewById(R.id.task_detail_calendar_button)
-        task_detail_time_button = view.findViewById(R.id.task_detail_time_button)
+        task_detail_time_button = view.findViewById(R.id.task_detail_time_button)  //date
         task_detail_low_radio = view.findViewById(R.id.task_detail_low_radio)
         task_detail_med_radio = view.findViewById(R.id.task_detail_med_radio)
         task_detail_high_radio = view.findViewById(R.id.task_detail_high_radio)
         task_detail_notes = view.findViewById(R.id.task_detail_notes)
         task_detail_save_button = view.findViewById(R.id.task_detail_save_button)
         radio_group = view.findViewById(R.id.task_detail_priority_radio_group)
+        time_button = view.findViewById(R.id.task_detail_time_button)  // time
+
 
         if (viewModel.currentTask.value != null) {
             task_detail_task_name.setText(viewModel.currentTask.value!!.taskItem)
@@ -62,6 +67,46 @@ class taskDetail : Fragment() {
             findNavController().navigate(R.id.action_global_dashboard)
         }
 
+        var formattedTime = ""
+
+
+        val timePickerDialogListener: TimePickerDialog.OnTimeSetListener = object : TimePickerDialog.OnTimeSetListener {
+            override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
+                formattedTime = when {
+                    p1 == 0 -> {
+                        if (p2 < 10) {
+                            "${p1 + 12}:0${p2} am"
+                        } else {
+                            "${p1 + 12}: ${p2} am"
+                        }
+                    }
+                    p1 > 12 -> {
+                        if (p2 < 10) {
+                            "${p1 - 12}:0${p2} pm"
+                        }else {
+                            "${p1 - 12}:${p2} pm"
+                        }
+                    }
+                    p1 == 12 -> {
+                        if (p2 < 10) {
+                            "${p1}:0${p2} pm"
+                        }else {
+                            "${p1}:${p2} pm"
+                        }
+                    }
+                    else -> {
+                        if (p2 < 10) {
+                            "${p1}:${p2} am"
+                        }else {
+                            "${p1}:${p2} am"
+                        }
+                    }
+                }
+            }
+         //   date_textView.text = formattedTime
+
+        }
+
 
         // just trying with name and notes, deal with buttons later
         task_detail_save_button.setOnClickListener {
@@ -70,7 +115,7 @@ class taskDetail : Fragment() {
                     val task = Task()
                     task.taskItem = task_detail_task_name.text.toString()
                     task.note = task_detail_notes.text.toString()
-                    task.date = "date"
+                    task.date = formattedTime
                     task.priority = if(task_detail_low_radio.isChecked) {
                         1
                     } else if(task_detail_med_radio.isChecked) {
@@ -81,14 +126,12 @@ class taskDetail : Fragment() {
                         0
                     }
 
-
-
                     viewModel.addNewTask(task)
                 }
             }
 
             else {
-                // upodate value in database
+                // update value in database
                 viewModel.currentTask.value?.taskItem = task_detail_task_name.text.toString()
                 viewModel.currentTask.value?.date =  "update Date"
                 viewModel.currentTask.value?.priority =
@@ -110,9 +153,6 @@ class taskDetail : Fragment() {
         }
 
     }
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
