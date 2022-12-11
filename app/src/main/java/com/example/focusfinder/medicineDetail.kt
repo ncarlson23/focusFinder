@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.RadioButton
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 
 
@@ -26,6 +27,8 @@ class medicineDetail : Fragment() {
     lateinit var medicine_detail_either_radio: RadioButton
     lateinit var medicine_detail_notes_edit: EditText
     lateinit var medicine_detail_save_button: Button
+
+    val viewModel: focusFinderViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,14 +51,29 @@ class medicineDetail : Fragment() {
         }
 
         medicine_detail_save_button.setOnClickListener {
+
+            var medicine = Medicine()
+            if (medicine_detail_generic_name_edit.text != null) {
+                medicine.overCounterName = medicine_detail_generic_name_edit.text.toString()
+                medicine.officialName = medicine_detail_medication_name_edit.text.toString()
+                var withFood = ""
+                if (medicine_detail_food_radio.isChecked) withFood = "Food"
+                if (medicine_detail_no_food_radio.isChecked) withFood = "No Food"
+                if (medicine_detail_either_radio.isChecked) withFood = "Either"
+                medicine.food = withFood
+                medicine.dosage = medicine_detail_dosage_edit.text.toString()
+                medicine.morning = medicine_detail_morning_checkbox.isChecked
+                medicine.afternoon = medicine_detail_afternoon_checkbox.isChecked
+                medicine.evening = medicine_detail_evening_checkbox.isChecked
+                medicine.notes = medicine_detail_notes_edit.text.toString()
+
+                viewModel.addNewMedicine(medicine)
+            }
             findNavController().navigate(R.id.action_global_medicineHome)
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

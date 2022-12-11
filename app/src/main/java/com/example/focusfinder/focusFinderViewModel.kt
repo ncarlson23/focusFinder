@@ -67,10 +67,12 @@ class focusFinderViewModel: ViewModel() {
     }
 
     fun addNewMedicine(type: Medicine) {
+        medicineDatabase.value?.medicineDAO()?.insert(type)
     }
 
 
     fun deleteMedicine(type: Medicine) {
+        medicineDatabase.value?.medicineDAO()?.deleteMedicineFromDB(type.medicineID)
     }
 
 

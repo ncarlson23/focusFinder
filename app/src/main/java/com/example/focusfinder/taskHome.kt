@@ -44,9 +44,6 @@ class taskHome : Fragment() {
 
 
 
-
-
-
         task_home_home_button = view.findViewById(R.id.task_home_home_button)
         task_home_recycler_view = view.findViewById(R.id.task_home_recycler_view)
         task_home_add_button = view.findViewById(R.id.task_home_add_button)

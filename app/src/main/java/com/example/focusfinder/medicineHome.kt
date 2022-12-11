@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -15,6 +17,11 @@ class medicineHome : Fragment() {
     lateinit var medicine_home_home_button : Button
     lateinit var medicine_home_recycler_view : RecyclerView
     lateinit var medicine_home_add_button : Button
+
+    val viewModel: focusFinderViewModel by activityViewModels()
+
+    lateinit var viewManager:RecyclerView.LayoutManager
+    lateinit var viewAdapter: MedicineRecyclerViewAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,11 +38,43 @@ class medicineHome : Fragment() {
             // do VM and DB stuff
             findNavController().navigate(R.id.action_medicineHome_to_medicineDetail)
         }
+
+        viewModel.getMedicineListFromDB();
+
+        viewManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL, false)
+        viewAdapter = viewModel.medicineList.value?.let{ MedicineRecyclerViewAdapter(it, viewModel) }!!
+        medicine_home_recycler_view.layoutManager = viewManager
+        medicine_home_recycler_view.adapter = viewAdapter
+
+        viewModel.medicineList.observe(viewLifecycleOwner, {
+            viewAdapter.medData = it
+            viewAdapter.notifyDataSetChanged()
+        })
+
+
+
+
+
+
+
+
+
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

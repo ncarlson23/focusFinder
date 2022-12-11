@@ -6,15 +6,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 // this is recycler for task list
 
-class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFinderViewModel) :
+class RecyclerViewAdapter(var taskData: Array<Task>, val taskViewModel: focusFinderViewModel) :
     RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder>() {
-    
+
 
     // click lambda
     lateinit var clickLambda: (Task) -> Unit
@@ -33,7 +31,6 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
         // set the data in terms of the recyclerView
         holder.bind(taskData[position], clickLambda)
 
-
     }
 
     override fun getItemCount(): Int {
@@ -49,9 +46,9 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
             itemView.findViewById<TextView>(R.id.task_item_name).text = task.taskItem
 
             var p = ""
-            if (task.priority == 1)  p = "!"
-            if (task.priority == 2)  p = "!!"
-            if (task.priority == 3)  p = "!!!"
+            if (task.priority == 1) p = "!"
+            if (task.priority == 2) p = "!!"
+            if (task.priority == 3) p = "!!!"
 
 
             itemView.findViewById<TextView>(R.id.task_item_priority).text = p
@@ -64,18 +61,17 @@ class RecyclerViewAdapter(var taskData:Array<Task>, val taskViewModel: focusFind
 
             var checkbox = itemView.findViewById<CheckBox>(R.id.task_item_checkbox)
 
-            itemView.findViewById<CheckBox>(R.id.task_item_checkbox).setOnClickListener{
+            itemView.findViewById<CheckBox>(R.id.task_item_checkbox).setOnClickListener {
                 if (checkbox.isChecked) {
                     task.checked = true
                     taskViewModel.updateTask(task)
-                }
-                else {
+                } else {
                     task.checked = false
                     taskViewModel.updateTask(task)
                 }
                 taskViewModel.getTaskListFromDB()
 
-                taskViewModel.taskList.value!!.sortByDescending{
+                taskViewModel.taskList.value!!.sortByDescending {
                     it.priority
                 }
 
