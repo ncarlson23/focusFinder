@@ -18,14 +18,14 @@ class taskDetail : Fragment() {
     lateinit var task_detail_home_button : Button
     lateinit var task_detail_task_name : EditText
     lateinit var task_detail_calendar_button : Button  // date
-    lateinit var task_detail_time_button : Button
+    lateinit var task_detail_time_button : Button  // time
     lateinit var task_detail_low_radio : RadioButton
     lateinit var task_detail_med_radio : RadioButton
     lateinit var task_detail_high_radio : RadioButton
     lateinit var task_detail_notes : EditText
     lateinit var task_detail_save_button : Button
     lateinit var radio_group : RadioGroup
-    lateinit var time_button : Button  //time
+
 
     val viewModel : focusFinderViewModel by activityViewModels()
 
@@ -34,15 +34,15 @@ class taskDetail : Fragment() {
 
         task_detail_home_button = view.findViewById(R.id.task_detail_home_button)
         task_detail_task_name = view.findViewById(R.id.task_detail_task_name)
-        task_detail_calendar_button = view.findViewById(R.id.task_detail_calendar_button)
-        task_detail_time_button = view.findViewById(R.id.task_detail_time_button)  //date
+        task_detail_calendar_button = view.findViewById(R.id.task_detail_calendar_button) // date
+        task_detail_time_button = view.findViewById(R.id.task_detail_time_button)  // time
         task_detail_low_radio = view.findViewById(R.id.task_detail_low_radio)
         task_detail_med_radio = view.findViewById(R.id.task_detail_med_radio)
         task_detail_high_radio = view.findViewById(R.id.task_detail_high_radio)
         task_detail_notes = view.findViewById(R.id.task_detail_notes)
         task_detail_save_button = view.findViewById(R.id.task_detail_save_button)
         radio_group = view.findViewById(R.id.task_detail_priority_radio_group)
-        time_button = view.findViewById(R.id.task_detail_time_button)  // time
+
 
 
         if (viewModel.currentTask.value != null) {
@@ -103,8 +103,20 @@ class taskDetail : Fragment() {
                     }
                 }
             }
-         //   date_textView.text = formattedTime
 
+        }
+
+        // TIMING FUCKING WORKS LET'S GO
+
+        task_detail_time_button.setOnClickListener{
+            val timePicker : TimePickerDialog = TimePickerDialog(
+                this.context,
+                timePickerDialogListener,
+                12,
+                10,
+                false
+            )
+            timePicker.show()
         }
 
 
@@ -133,7 +145,7 @@ class taskDetail : Fragment() {
             else {
                 // update value in database
                 viewModel.currentTask.value?.taskItem = task_detail_task_name.text.toString()
-                viewModel.currentTask.value?.date =  "update Date"
+                viewModel.currentTask.value?.date =  formattedTime
                 viewModel.currentTask.value?.priority =
                     if(task_detail_low_radio.isChecked) {
                         1
