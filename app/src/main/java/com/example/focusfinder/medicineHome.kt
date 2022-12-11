@@ -39,10 +39,16 @@ class medicineHome : Fragment() {
             findNavController().navigate(R.id.action_medicineHome_to_medicineDetail)
         }
 
+        val medClickLambda: (Medicine) -> Unit = {
+            viewModel.currentMedicine.value = it
+            findNavController().navigate(R.id.action_medicineHome_to_medicineDetail)
+        }
+
         viewModel.getMedicineListFromDB();
 
         viewManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL, false)
         viewAdapter = viewModel.medicineList.value?.let{ MedicineRecyclerViewAdapter(it, viewModel) }!!
+        viewAdapter.clickLambda = medClickLambda
         medicine_home_recycler_view.layoutManager = viewManager
         medicine_home_recycler_view.adapter = viewAdapter
 

@@ -14,6 +14,7 @@ class MedicineRecyclerViewAdapter(
     val taskViewModel: focusFinderViewModel
 ) : RecyclerView.Adapter<MedicineRecyclerViewAdapter.RecyclerViewHolder>() {
 
+    lateinit var clickLambda:(Medicine) -> Unit
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -21,12 +22,12 @@ class MedicineRecyclerViewAdapter(
     ): RecyclerViewHolder {
         val viewItem =
             LayoutInflater.from(parent.context).inflate(R.layout.medicine_item, parent, false)
-        return RecyclerViewHolder(viewItem)
+        return RecyclerViewHolder(viewItem, clickLambda)
     }
 
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        holder.bind(medData[position])
+        holder.bind(medData[position], clickLambda)
     }
 
     override fun getItemCount(): Int {
@@ -34,14 +35,14 @@ class MedicineRecyclerViewAdapter(
     }
 
     inner class RecyclerViewHolder(
-        itemView: View
+        itemView: View, val clickLambda:(Medicine) ->Unit
     ) : RecyclerView.ViewHolder(itemView) {
-        fun bind(medicine: Medicine) {
+        fun bind(medicine: Medicine, cickLambda: (Medicine) -> Unit) {
 
             itemView.findViewById<TextView>(R.id.medicine_item_generic_name).text = medicine.overCounterName
             itemView.findViewById<TextView>(R.id.medicine_item_medicine_name).text = medicine.officialName
             itemView.findViewById<TextView>(R.id.medicine_item_dosage_amount).text = medicine.dosage
-            itemView.findViewById<TextView>(R.id.medicine_item_notes).text = medicine.dosage
+            itemView.findViewById<TextView>(R.id.medicine_item_notes).text = medicine.notes
 
             var numTimes = 0
             if (medicine.morning) numTimes++
@@ -67,6 +68,9 @@ class MedicineRecyclerViewAdapter(
             }
 
 
+            itemView.setOnClickListener {
+                clickLambda(medicine)
+            }
 
 
         }

@@ -34,11 +34,14 @@ class medicineDetail : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         medicine_detail_home_button = view.findViewById(R.id.medicine_detail_home_button)
-        medicine_detail_medication_name_edit = view.findViewById(R.id.medicine_detail_medication_name_edit)
-        medicine_detail_generic_name_edit = view.findViewById(R.id.medicine_detail_generic_name_edit)
+        medicine_detail_medication_name_edit =
+            view.findViewById(R.id.medicine_detail_medication_name_edit)
+        medicine_detail_generic_name_edit =
+            view.findViewById(R.id.medicine_detail_generic_name_edit)
         medicine_detail_dosage_edit = view.findViewById(R.id.medicine_detail_dosage_edit)
         medicine_detail_morning_checkbox = view.findViewById(R.id.medicine_detail_morning_checkbox)
-        medicine_detail_afternoon_checkbox = view.findViewById(R.id.medicine_detail_afternoon_checkbox)
+        medicine_detail_afternoon_checkbox =
+            view.findViewById(R.id.medicine_detail_afternoon_checkbox)
         medicine_detail_evening_checkbox = view.findViewById(R.id.medicine_detail_evening_checkbox)
         medicine_detail_food_radio = view.findViewById(R.id.medicine_detail_food_radio)
         medicine_detail_no_food_radio = view.findViewById(R.id.medicine_detail_no_food_radio)
@@ -46,7 +49,32 @@ class medicineDetail : Fragment() {
         medicine_detail_notes_edit = view.findViewById(R.id.medicine_detail_notes_edit)
         medicine_detail_save_button = view.findViewById(R.id.medicine_detail_save_button)
 
+        if (viewModel.currentMedicine.value != null) {
+            medicine_detail_medication_name_edit.setText(viewModel.currentMedicine.value?.officialName)
+            medicine_detail_generic_name_edit.setText(viewModel.currentMedicine.value?.overCounterName)
+            medicine_detail_dosage_edit.setText(viewModel.currentMedicine.value?.dosage)
+            medicine_detail_notes_edit.setText(viewModel.currentMedicine.value?.notes)
+
+            if (viewModel.currentMedicine.value!!.morning) medicine_detail_morning_checkbox.isChecked =
+                true
+            if (viewModel.currentMedicine.value!!.afternoon) medicine_detail_afternoon_checkbox.isChecked =
+                true
+            if (viewModel.currentMedicine.value!!.evening) medicine_detail_evening_checkbox.isChecked =
+                true
+
+            if (viewModel.currentMedicine.value!!.food == "Food") medicine_detail_food_radio.isChecked =
+                true
+            if (viewModel.currentMedicine.value!!.food == " No Food") medicine_detail_no_food_radio.isChecked =
+                true
+            if (viewModel.currentMedicine.value!!.food == "Either") medicine_detail_either_radio.isChecked =
+                true
+
+
+        }
+
+
         medicine_detail_home_button.setOnClickListener {
+            viewModel.currentMedicine.value = null
             findNavController().navigate(R.id.action_global_dashboard)
         }
 
@@ -69,10 +97,10 @@ class medicineDetail : Fragment() {
 
                 viewModel.addNewMedicine(medicine)
             }
+            viewModel.currentMedicine.value = null
             findNavController().navigate(R.id.action_global_medicineHome)
         }
     }
-
 
 
     override fun onCreateView(
