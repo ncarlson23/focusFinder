@@ -4,14 +4,15 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 //https://www.digitalocean.com/community/tutorials/android-date-time-picker-dialog
@@ -79,7 +80,7 @@ class taskDetail : Fragment() {
                  cal.set(Calendar.MONTH, p2)
                  cal.set(Calendar.DAY_OF_MONTH, p3)
 
-                formattedDate = "dd/mm/yyyy"
+                formattedDate = "MM/dd/yyyy"
 
 //                cal.toString()
                 Log.d("PENIS", formattedDate)
@@ -162,7 +163,7 @@ class taskDetail : Fragment() {
                     val task = Task()
                     task.taskItem = task_detail_task_name.text.toString()
                     task.note = task_detail_notes.text.toString()
-                    task.date = formattedDate
+                    task.date = sdf
                     task.time = formattedTime
                     task.priority = if(task_detail_low_radio.isChecked) {
                         1
@@ -181,7 +182,7 @@ class taskDetail : Fragment() {
             else {
                 // update value in database
                 viewModel.currentTask.value?.taskItem = task_detail_task_name.text.toString()
-                viewModel.currentTask.value?.date =  formattedDate
+                viewModel.currentTask.value?.date =  sdf
                 viewModel.currentTask.value?.time = formattedTime
                 viewModel.currentTask.value?.priority =
                     if(task_detail_low_radio.isChecked) {
