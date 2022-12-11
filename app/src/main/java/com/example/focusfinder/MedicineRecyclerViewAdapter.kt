@@ -1,8 +1,10 @@
 package com.example.focusfinder
 
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
@@ -46,6 +48,24 @@ class MedicineRecyclerViewAdapter(
             if (medicine.afternoon) numTimes++
             if (medicine.evening) numTimes++
             itemView.findViewById<TextView>(R.id.medicine_item_icon_one).text = numTimes.toString()
+
+            if (medicine.food == "Food" || medicine.food == "Either")
+                itemView.findViewById<ImageView>(R.id.medicine_item_icon_two).setImageResource(R.drawable.ic_baseline_fastfood_24)
+            else itemView.findViewById<ImageView>(R.id.medicine_item_icon_two).setImageResource(R.drawable.ic_baseline_no_food_24)
+
+            if (medicine.morning || medicine.afternoon) {
+                if (medicine.evening){
+                    itemView.findViewById<ImageView>(R.id.medicine_item_icon_three).setImageResource(R.drawable.ic_morning_night)
+                }
+                else{
+                    itemView.findViewById<ImageView>(R.id.medicine_item_icon_three).setImageResource(R.drawable.ic_day)
+
+                }
+            }
+            else {
+                itemView.findViewById<ImageView>(R.id.medicine_item_icon_three).setImageResource(R.drawable.ic_night)
+            }
+
 
 
 
