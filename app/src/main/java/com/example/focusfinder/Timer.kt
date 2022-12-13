@@ -65,7 +65,7 @@ class Timer : Fragment() {
         start_button.setOnClickListener {
             if (isRunning) {
                 pauseTimer()
-               // currentTime
+                // currentTime
                 //Log.d("BBBBB", currentTime.toString())
             } else {
                 // need to save current time so when user resumes it doesn't start from the top again
