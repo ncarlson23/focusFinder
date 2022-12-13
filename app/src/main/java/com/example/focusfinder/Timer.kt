@@ -113,6 +113,7 @@ class Timer : Fragment() {
         reset_button.visibility = View.INVISIBLE
     }
 
+    // fixed
     fun resetTimer() {
         time_in_milli_seconds = START_MILLI_SECONDS
         updateTextUI()
