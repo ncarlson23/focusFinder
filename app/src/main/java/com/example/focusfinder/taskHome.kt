@@ -30,17 +30,7 @@ class taskHome : Fragment() {
         // first load most recent list of tasks
         viewModel.getTaskListFromDB();
 
-        // do sorting here
-// first sort by priority
-        // sort same list by isChecked() or not
 
-        viewModel.taskList.value!!.sortByDescending{
-            it.priority
-        }
-
-        viewModel.taskList.value!!.sortBy {
-            it.checked
-        }
 
 
 
@@ -84,7 +74,7 @@ class taskHome : Fragment() {
         }
 
         task_home_add_button.setOnClickListener {
-          viewModel.currentTask.value = null // so that when you add a new task the form is blank
+            viewModel.currentTask.value = null // so that when you add a new task the form is blank
             findNavController().navigate(R.id.action_taskHome_to_taskDetail)
         }
 

@@ -11,100 +11,121 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="9"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="false"
-            android:text="Dashboard"
+            android:text="Good\nMorning"
             android:textColor="@color/black"
-            android:textSize="36sp"
-            android:textStyle="bold" />
+            android:textSize="70sp"
+            android:textStyle="bold"/>
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_home"
-            android:layout_gravity="center"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
-
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:paddingBottom="5dp">
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingLeft="10dp"
-            android:text="Medicine Tracker"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingLeft="5dp"
-            android:background="#00FFFFFF"
-            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+            android:src="@drawable/ic_morning_night"/>
 
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/round_rect_shape"
-        android:elevation="10dp">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:paddingBottom="5dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:text="Upcoming Tasks"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            android:textSize="22sp" />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#00FFFFFF"
-            android:paddingLeft="5dp"
-            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:background="@drawable/round_rect_shape"
-        android:elevation="10dp">
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="9"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:clickable="false"-->
+<!--            android:text="Dashboard"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="36sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_home"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_weight="1"/>-->
+<!--    </LinearLayout>-->
 
 
-    </LinearLayout>
+
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingTop="15dp"-->
+<!--        android:paddingBottom="5dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:text="Medicine Tracker"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="22sp" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:background="#00FFFFFF"-->
+<!--            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />-->
+
+<!--    </LinearLayout>-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="160dp"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:background="@drawable/round_rect_shape"-->
+<!--        android:elevation="10dp">-->
+
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingTop="20dp"-->
+<!--        android:paddingBottom="5dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingLeft="10dp"-->
+<!--            android:text="Upcoming Tasks"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textSize="22sp" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:background="#00FFFFFF"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />-->
+<!--    </LinearLayout>-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:background="@drawable/round_rect_shape"-->
+<!--        android:elevation="10dp">-->
+
+
+<!--    </LinearLayout>-->
 
 
 </LinearLayout>

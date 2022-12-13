@@ -45,6 +45,13 @@ class focusFinderViewModel: ViewModel() {
         if (taskList.value == null) {
             taskList.value = emptyArray()
         }
+        taskList.value!!.sortByDescending{
+            it.priority
+        }
+
+        taskList.value!!.sortBy {
+            it.checked
+        }
     }
 
     fun addNewTask(type :Task){

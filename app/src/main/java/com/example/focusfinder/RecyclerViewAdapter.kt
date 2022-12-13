@@ -86,13 +86,6 @@ class RecyclerViewAdapter(var taskData: Array<Task>, val taskViewModel: focusFin
                 }
                 taskViewModel.getTaskListFromDB()
 
-                taskViewModel.taskList.value!!.sortByDescending {
-                    it.priority
-                }
-
-                taskViewModel.taskList.value!!.sortBy {
-                    it.checked
-                }
 
                 taskViewModel.taskList.postValue(taskViewModel.taskList.value)
             }
