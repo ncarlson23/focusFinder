@@ -38,7 +38,6 @@ class Timer : Fragment() {
     var time_in_milli_seconds = 0L
     var pausedTime : Long = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -67,7 +66,11 @@ class Timer : Fragment() {
                 pauseTimer()
                 // currentTime
                 //Log.d("BBBBB", currentTime.toString())
-            } else {
+            }
+
+
+            else if (time_text.text.isNotEmpty()){
+
                 // need to save current time so when user resumes it doesn't start from the top again
                 // FIX THIS BUG
 //                pausedTime = SystemClock.elapsedRealtime()
@@ -90,7 +93,9 @@ class Timer : Fragment() {
         countdown_timer.cancel()
         isRunning = false
         reset_button.visibility = View.VISIBLE
+
     }
+
 
     fun startTimer(time_in_seconds : Long) {
         countdown_timer = object : CountDownTimer(time_in_seconds, 1000) {
