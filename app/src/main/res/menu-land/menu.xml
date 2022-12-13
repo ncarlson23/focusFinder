@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-
     <item
         android:id="@+id/dashboard"
         android:icon="@drawable/ic_home"
@@ -26,5 +25,4 @@
         android:id="@+id/timer"
         android:icon="@drawable/ic_baseline_timer_24"
         tools:ignore="MenuTitle"
-        android:title="Timer"/>
-</menu>
+        android:title="Timer"/></menu>
