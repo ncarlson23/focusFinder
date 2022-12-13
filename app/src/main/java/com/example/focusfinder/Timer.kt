@@ -37,10 +37,6 @@ class Timer : Fragment() {
     var time_in_milli_seconds = 0L
 
 
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -68,7 +64,9 @@ class Timer : Fragment() {
                 currentTime = time_text.text.toString()
                 Log.d("BBBBB", currentTime as String)
             } else {
-                val time = user_input.text.toString() // need to save current time so when user resumes it doesnt start from the top again
+                // need to save current time so when user resumes it doesn't start from the top again
+                // FIX THIS BUG
+                val time = user_input.text.toString()
                 time_in_milli_seconds = time.toLong() * 60000L
                 startTimer(time_in_milli_seconds)
             }
