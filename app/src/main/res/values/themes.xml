@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.FocusFinder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#009BDF</item>
+        <item name="colorPrimary">#FF6CB8EC</item>
         <item name="colorPrimaryVariant">#1C4B5E</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#FFB7A0</item>
+        <item name="colorSecondary">#41A7ED</item>
         <item name="colorSecondaryVariant">#F1D580</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

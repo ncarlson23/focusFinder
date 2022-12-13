@@ -81,6 +81,8 @@ class focusFinderViewModel: ViewModel() {
 
     fun deleteMedicine(type: Medicine) {
         medicineDatabase.value?.medicineDAO()?.deleteMedicineFromDB(type.medicineID)
+        getMedicineListFromDB()
+        medicineList.postValue(medicineList.value)
     }
 
 

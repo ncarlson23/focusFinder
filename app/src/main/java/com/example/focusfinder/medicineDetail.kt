@@ -43,7 +43,7 @@ class medicineDetail : Fragment() {
         }
 
         medicine_detail_save_button.setOnClickListener {
-            if (medicine_detail_generic_name_edit.text != null && viewModel.currentMedicine.value == null) {
+            if (medicine_detail_generic_name_edit.text.isNotEmpty() && viewModel.currentMedicine.value == null) {
                 addNewMedication()
             }
 
