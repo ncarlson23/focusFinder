@@ -85,6 +85,21 @@ class focusFinderViewModel: ViewModel() {
         medicineList.postValue(medicineList.value)
     }
 
+    fun updateMedicine(medicine:Medicine) {
+        medicineDatabase.value?.medicineDAO()?.updateMedicine(
+            medicine.medicineID,
+            medicine.overCounterName,
+            medicine.officialName,
+            medicine.food,
+            medicine.dosage,
+            medicine.morning,
+            medicine.afternoon,
+            medicine.evening,
+            medicine.notes
+        )
+
+    }
+
 
 
 }

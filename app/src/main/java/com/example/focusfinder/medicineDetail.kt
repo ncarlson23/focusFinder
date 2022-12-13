@@ -46,12 +46,33 @@ class medicineDetail : Fragment() {
             if (medicine_detail_generic_name_edit.text.isNotEmpty() && viewModel.currentMedicine.value == null) {
                 addNewMedication()
             }
+            if (viewModel.currentMedicine.value != null) {
+                updateMedicineInDatabase()
+            }
 
             viewModel.currentMedicine.value = null
             findNavController().navigate(R.id.action_global_medicineHome)
         }
     }
 
+    private fun updateMedicineInDatabase() {
+        viewModel.currentMedicine.value?.overCounterName = medicine_detail_generic_name_edit.text.toString()
+        viewModel.currentMedicine.value?.officialName = medicine_detail_medication_name_edit.text.toString()
+
+        var withFood = ""
+        if (medicine_detail_food_radio.isChecked) withFood = "Food"
+        if (medicine_detail_no_food_radio.isChecked) withFood = "No Food"
+        if (medicine_detail_either_radio.isChecked) withFood = "Either"
+
+        viewModel.currentMedicine.value?.food = withFood
+        viewModel.currentMedicine.value?.dosage = medicine_detail_dosage_edit.text.toString()
+        viewModel.currentMedicine.value?.morning = medicine_detail_morning_checkbox.isChecked
+        viewModel.currentMedicine.value?.afternoon = medicine_detail_afternoon_checkbox.isChecked
+        viewModel.currentMedicine.value?.evening = medicine_detail_evening_checkbox.isChecked
+        viewModel.currentMedicine.value?.notes =  medicine_detail_notes_edit.text.toString()
+
+        viewModel.updateMedicine(viewModel.currentMedicine.value!!)
+    }
 
     private fun loadData() {
         medicine_detail_medication_name_edit.setText(viewModel.currentMedicine.value?.officialName)

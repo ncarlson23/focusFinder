@@ -14,12 +14,25 @@ interface MedicineDAO {
 
     // return list of all tasks
     @Query("SELECT * FROM medicineDB")
-    fun getMedicineFromDB():Array<Medicine>
+    fun getMedicineFromDB(): Array<Medicine>
 
     // delete medicine item based on ID
     @Query("DELETE FROM medicineDB WHERE medicineID=:medID")
     fun deleteMedicineFromDB(medID: String)
 
+    @Query("UPDATE medicineDB SET overCounterName=:overCounterName, officialName=:officialName, food=:food,dosage=:dosage, morning=:morning, afternoon=:afternoon,evening=:evening, notes=:notes WHERE medicineID=:medicineID")
+    fun updateMedicine(
+        medicineID: String,
+        overCounterName: String,
+        officialName: String,
+        food: String,
+        dosage: String,
+        morning: Boolean,
+        afternoon: Boolean,
+        evening: Boolean,
+        notes: String
+
+    )
 
 
 }
