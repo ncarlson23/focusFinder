@@ -4,10 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/ninac/AndroidStudioProjects/FocusFinder/app/src/main/res/drawable/task_item_shape.xml" value="0.2375" />
         <entry key="..\:/Users/ninac/AndroidStudioProjects/FocusFinder/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ninac/AndroidStudioProjects/FocusFinder/app/src/main/res/layout/fragment_create_account.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ninac/AndroidStudioProjects/FocusFinder/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/ninac/AndroidStudioProjects/FocusFinder/app/src/main/res/layout/fragment_timer.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ninac/AndroidStudioProjects/FocusFinder/app/src/main/res/layout/fragment_timer.xml" value="0.264" />
         <entry key="..\:/Users/ninac/AndroidStudioProjects/FocusFinder/app/src/main/res/layout/medicine_item.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/ic_baseline_assignment_24.xml" value="0.1875" />
