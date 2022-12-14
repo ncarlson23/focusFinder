@@ -55,17 +55,17 @@ class Dashboard : Fragment() {
         viewModel.getTaskListFromDB()
         viewModel.getMedicineListFromDB()
 
-        if (viewModel.taskList.value!!.isNotEmpty()) {
-            var top_task = viewModel.taskList.value?.get(0)
-            task_name.text = top_task?.taskItem
-            task_date.text = top_task?.date
-           var p = ""
-            if (top_task?.priority == 1) p = "!"
-            if (top_task?.priority == 2) p = "!!"
-            if (top_task?.priority == 3) p = "!!!"
-
-            task_priority.text = p
-        }
+//        if (viewModel.taskList.value!!.isNotEmpty()) {
+//            var top_task = viewModel.taskList.value?.get(0)
+//            task_name.text = top_task?.taskItem
+//            task_date.text = top_task?.date
+//           var p = ""
+//            if (top_task?.priority == 1) p = "!"
+//            if (top_task?.priority == 2) p = "!!"
+//            if (top_task?.priority == 3) p = "!!!"
+//
+//            task_priority.text = p
+//        }
 
 
     }
