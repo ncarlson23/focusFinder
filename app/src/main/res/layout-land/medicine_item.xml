@@ -126,12 +126,10 @@
         android:layout_height="wrap_content"
         android:paddingLeft="15dp"
         android:text="Medicine Name"
+        android:paddingBottom="10dp"
         android:textColor="#424242"
         android:textSize="24sp"
         android:textStyle="bold|italic" />
-
-
-
 
     <TextView
         android:id="@+id/medicine_item_notes"
