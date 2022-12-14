@@ -17,7 +17,7 @@
         <receiver android:name=".ScreenOffReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name=".NotificationScheduler" />
             </intent-filter>
         </receiver>
         <activity

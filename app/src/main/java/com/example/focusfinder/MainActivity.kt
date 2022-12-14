@@ -3,11 +3,9 @@ package com.example.focusfinder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,8 +40,36 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val notificationsHelper = NotificationsHelper(this)
-        notificationsHelper.sendNotification()
+//        val notificationsHelper = NotificationsHelper(this)
+//        notificationsHelper.sendNotification()
+
+        val notificationScheduler = NotificationScheduler(this)
+
+
+        val time = Calendar.getInstance()
+
+        time.set(Calendar.HOUR_OF_DAY,18 )
+        time.set(Calendar.MINUTE, 5)
+        time.set(Calendar.SECOND, 0)
+
+
+//        if(viewModel.currentMedicine.value?.morning == true) {
+//            time.set(Calendar.HOUR_OF_DAY, 9)
+//            time.set(Calendar.MINUTE, 0)
+//            time.set(Calendar.SECOND, 0)
+//        } else if (viewModel.currentMedicine.value?.afternoon == true) {
+//            time.set(Calendar.HOUR_OF_DAY, 12)
+//            time.set(Calendar.MINUTE, 0)
+//            time.set(Calendar.SECOND, 0)
+//        }else {
+//            time.set(Calendar.HOUR_OF_DAY,18 )
+//            time.set(Calendar.MINUTE, 0)
+//            time.set(Calendar.SECOND, 0)
+//        }
+
+
+        notificationScheduler.scheduleNotification(time, "Task Reminder", "This is a reminder for a task")
+
 
     }
 }
