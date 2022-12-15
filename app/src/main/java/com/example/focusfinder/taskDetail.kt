@@ -31,6 +31,8 @@ class taskDetail : Fragment() {
     lateinit var radio_group: RadioGroup
 
     var time = Calendar.getInstance()
+    var timeChanged = false
+    var dateChanged = false
 
 
     val viewModel: focusFinderViewModel by activityViewModels()
@@ -40,7 +42,11 @@ class taskDetail : Fragment() {
 
         connectToXML(view)
 
-        if (viewModel.currentTask.value != null) loadData()
+        if (viewModel.currentTask.value != null) {
+            timeChanged = false
+            dateChanged = false
+            loadData()
+        }
 
         task_detail_home_button.setOnClickListener {
             findNavController().navigate(R.id.action_global_dashboard)
@@ -101,10 +107,10 @@ class taskDetail : Fragment() {
                         }
                     }
                 }
-
             }
 
         task_detail_time_button.setOnClickListener {
+            timeChanged = true
             val timePicker: TimePickerDialog = TimePickerDialog(
                 this.context,
                 timePickerDialogListener,
@@ -117,6 +123,7 @@ class taskDetail : Fragment() {
 
 
         task_detail_calendar_button.setOnClickListener {
+            dateChanged = true
             val datePicker: DatePickerDialog = DatePickerDialog(
                 this.requireContext(),
                 dateSetListener,
@@ -133,7 +140,9 @@ class taskDetail : Fragment() {
             if (task_detail_task_name.text.isNotEmpty() && viewModel.currentTask.value == null) {
                 addNewTask(sdf, formattedTime)
             }
-            if (viewModel.currentTask.value != null){
+            if (viewModel.currentTask.value != null) {
+                if (!dateChanged) sdf = viewModel.currentTask.value!!.date
+                if (!timeChanged) formattedTime = viewModel.currentTask.value!!.time
                 updateTaskInDatabase(sdf, formattedTime)
             }
 
