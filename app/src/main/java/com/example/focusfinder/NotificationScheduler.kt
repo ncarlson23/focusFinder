@@ -1,5 +1,12 @@
 package com.example.focusfinder
 
+/**
+ * NotificationScheduler.kt
+ * The following code is written based on Android's documentation for Notifications:
+ * https://developer.android.com/reference/android/app/Notification
+ * https://developer.android.com/training/scheduling/alarms
+ */
+
 import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -7,10 +14,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import com.example.focusfinder.com.example.focusfinder.NotificationPublisher
-import com.example.focusfinder.com.example.focusfinder.NotificationPublisher.Companion.NOTIFICATION_ID
-import com.example.focusfinder.com.example.focusfinder.NotificationPublisher.Companion.NOTIFICATION_TITLE
-import com.example.focusfinder.com.example.focusfinder.NotificationPublisher.Companion.NOTIFICATION_TEXT
 
 import java.util.*
 

@@ -1,9 +1,15 @@
 package com.example.focusfinder
 
+/**
+ * MedicineDAO.kt
+ * DAO file for the medicine database
+ */
+
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+
 
 @Dao
 interface MedicineDAO {
@@ -20,6 +26,7 @@ interface MedicineDAO {
     @Query("DELETE FROM medicineDB WHERE medicineID=:medID")
     fun deleteMedicineFromDB(medID: String)
 
+    // update a medicine entry
     @Query("UPDATE medicineDB SET overCounterName=:overCounterName, officialName=:officialName, food=:food,dosage=:dosage, morning=:morning, afternoon=:afternoon,evening=:evening, notes=:notes WHERE medicineID=:medicineID")
     fun updateMedicine(
         medicineID: String,

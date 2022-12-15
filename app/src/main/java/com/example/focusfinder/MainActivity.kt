@@ -1,5 +1,13 @@
 package com.example.focusfinder
 
+/**
+ * MainActivity.kt
+ * sets up the navigation between pages using navigate() and setOnItemSelectedListener()
+ * navigate between different fragments
+ * sets up the home menu button
+ * implements the push notifications scheduler
+ */
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -9,7 +17,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    val viewModel : focusFinderViewModel by viewModels()
+    // view model instance
+    val viewModel: focusFinderViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +29,10 @@ class MainActivity : AppCompatActivity() {
         viewModel.medicineDatabase.value = MedicineDB.getDBObject(applicationContext)
 
 
-
+        /**
+         * handle navigation between fragments
+         * handle home menu button navigation
+         */
         findViewById<BottomNavigationView>(R.id.bottom_menu).setOnItemSelectedListener {
             if (it.itemId == R.id.dashboard) {
                 findNavController(R.id.nav_host_fragment).navigate(R.id.action_global_dashboard)
@@ -40,50 +52,52 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //        if(viewModel.currentMedicine.value?.morning == true) {
-//            time.set(Calendar.HOUR_OF_DAY, 9)
-//            time.set(Calendar.MINUTE, 0)
-//            time.set(Calendar.SECOND, 0)
-//        } else if (viewModel.currentMedicine.value?.afternoon == true) {
-//            time.set(Calendar.HOUR_OF_DAY, 12)
-//            time.set(Calendar.MINUTE, 0)
-//            time.set(Calendar.SECOND, 0)
-//        }else {
-//            time.set(Calendar.HOUR_OF_DAY,18 )
-//            time.set(Calendar.MINUTE, 0)
-//            time.set(Calendar.SECOND, 0)
-//        }
-
-//        val notificationsHelper = NotificationsHelper(this)
-//        notificationsHelper.sendNotification()
-
+        /**
+         * Handle push notification scheduler
+         * 3 notifications:
+         * one in the morning for medicine
+         * one in the afternoon for medicine
+         * one in the evening for medicine
+         */
         val notificationScheduler = NotificationScheduler(this)
 
 
         val time = Calendar.getInstance()
 
-        time.set(Calendar.HOUR_OF_DAY,8 )
+        time.set(Calendar.HOUR_OF_DAY, 8)
         time.set(Calendar.MINUTE, 59)
         time.set(Calendar.SECOND, 0)
 
         val time2 = Calendar.getInstance()
 
-        time.set(Calendar.HOUR_OF_DAY,12 )
+        time.set(Calendar.HOUR_OF_DAY, 12)
         time.set(Calendar.MINUTE, 59)
         time.set(Calendar.SECOND, 0)
 
         val time3 = Calendar.getInstance()
 
-        time.set(Calendar.HOUR_OF_DAY,18 )
+        time.set(Calendar.HOUR_OF_DAY, 18)
         time.set(Calendar.MINUTE, 59)
         time.set(Calendar.SECOND, 0)
 
 
 
 
-        notificationScheduler.scheduleNotification(time, "Medicine Reminder", "This is a reminder to take any morning medications")
-        notificationScheduler.scheduleNotification(time2, "Medicine Reminder", "This is a reminder to take any evening medications")
-        notificationScheduler.scheduleNotification(time3, "Medicine Reminder", "This is a reminder to take any night-time medications")
+        notificationScheduler.scheduleNotification(
+            time,
+            "Medicine Reminder",
+            "This is a reminder to take any morning medications"
+        )
+        notificationScheduler.scheduleNotification(
+            time2,
+            "Medicine Reminder",
+            "This is a reminder to take any evening medications"
+        )
+        notificationScheduler.scheduleNotification(
+            time3,
+            "Medicine Reminder",
+            "This is a reminder to take any night-time medications"
+        )
 
 
     }

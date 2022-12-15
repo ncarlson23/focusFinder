@@ -14,7 +14,7 @@
         android:theme="@style/Theme.FocusFinder"
         tools:targetApi="31">
         <!-- In the AndroidManifest.xml file -->
-        <receiver android:name=".com.example.focusfinder.NotificationPublisher"
+        <receiver android:name=".NotificationPublisher"
             android:exported="true">
             <intent-filter>
                 <action android:name=".NotificationScheduler" />

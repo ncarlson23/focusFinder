@@ -1,11 +1,16 @@
-package com.example.focusfinder.com.example.focusfinder
+package com.example.focusfinder
+
+/**
+ * NotificationPusblisher.kt
+ * The following code is written based on Android's documentation for Notifications:
+ * https://developer.android.com/reference/android/app/Notification
+ */
 
 import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
-import com.example.focusfinder.R
 
 class NotificationPublisher : BroadcastReceiver() {
 
@@ -27,7 +32,8 @@ class NotificationPublisher : BroadcastReceiver() {
         // Get the notification data from the intent extras
         val notificationId = intent.getIntExtra(NOTIFICATION_ID, 0)
         val DEFAULT_NOTIFICATION_TITLE = "medicine reminder"
-        val notificationTitle = intent.getStringExtra(NOTIFICATION_TITLE) ?: DEFAULT_NOTIFICATION_TITLE
+        val notificationTitle =
+            intent.getStringExtra(NOTIFICATION_TITLE) ?: DEFAULT_NOTIFICATION_TITLE
         val DEFAULT_NOTIFICATION_TEXT = "this is a reminder to take your medicine"
         val notificationText = intent.getStringExtra(NOTIFICATION_TEXT) ?: DEFAULT_NOTIFICATION_TEXT
 

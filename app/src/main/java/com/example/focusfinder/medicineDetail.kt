@@ -12,9 +12,15 @@ import android.widget.RadioButton
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 
+/**
+ * MedicineDetail.kt
+ * medicine detail fragment
+ * when the user wants to add a new medicine or update an existing entry, navigate to this page
+ */
 
 class medicineDetail : Fragment() {
 
+    // initialize variables
     lateinit var medicine_detail_home_button: Button
     lateinit var medicine_detail_medication_name_edit: EditText
     lateinit var medicine_detail_generic_name_edit: EditText
@@ -28,6 +34,7 @@ class medicineDetail : Fragment() {
     lateinit var medicine_detail_notes_edit: EditText
     lateinit var medicine_detail_save_button: Button
 
+    // view model instance
     val viewModel: focusFinderViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,11 +44,16 @@ class medicineDetail : Fragment() {
 
         if (viewModel.currentMedicine.value != null) loadData()
 
+        // on click listener for home button
+        // navigates back to dashboard when clicked
         medicine_detail_home_button.setOnClickListener {
             viewModel.currentMedicine.value = null
             findNavController().navigate(R.id.action_global_dashboard)
         }
 
+        // on click listener for save button
+        // navigates to medicine home page when clicked
+        // also saves newest medicine added/updated
         medicine_detail_save_button.setOnClickListener {
             if (medicine_detail_generic_name_edit.text.isNotEmpty() && viewModel.currentMedicine.value == null) {
                 addNewMedication()
@@ -55,9 +67,15 @@ class medicineDetail : Fragment() {
         }
     }
 
+    /**
+     * fun updateMedicineInDatabase()
+     * updates parameters of medicine object that user wants to edit
+     */
     private fun updateMedicineInDatabase() {
-        viewModel.currentMedicine.value?.overCounterName = medicine_detail_generic_name_edit.text.toString()
-        viewModel.currentMedicine.value?.officialName = medicine_detail_medication_name_edit.text.toString()
+        viewModel.currentMedicine.value?.overCounterName =
+            medicine_detail_generic_name_edit.text.toString()
+        viewModel.currentMedicine.value?.officialName =
+            medicine_detail_medication_name_edit.text.toString()
 
         var withFood = ""
         if (medicine_detail_food_radio.isChecked) withFood = "Food"
@@ -69,11 +87,17 @@ class medicineDetail : Fragment() {
         viewModel.currentMedicine.value?.morning = medicine_detail_morning_checkbox.isChecked
         viewModel.currentMedicine.value?.afternoon = medicine_detail_afternoon_checkbox.isChecked
         viewModel.currentMedicine.value?.evening = medicine_detail_evening_checkbox.isChecked
-        viewModel.currentMedicine.value?.notes =  medicine_detail_notes_edit.text.toString()
+        viewModel.currentMedicine.value?.notes = medicine_detail_notes_edit.text.toString()
 
         viewModel.updateMedicine(viewModel.currentMedicine.value!!)
     }
 
+    /**
+     * fun loadData()
+     * load local data into the viewModel to be displayed on page
+     * set values based on whether medicine should be taken with/without food
+     * set values based on whether medicine should be taken in morning/afternoon/evening
+     */
     private fun loadData() {
         medicine_detail_medication_name_edit.setText(viewModel.currentMedicine.value?.officialName)
         medicine_detail_generic_name_edit.setText(viewModel.currentMedicine.value?.overCounterName)
@@ -95,26 +119,34 @@ class medicineDetail : Fragment() {
             true
     }
 
-    private fun addNewMedication(){
+    /**
+     * fun addNewMedication()
+     * add a new medicine to the to the viewModel
+     */
+    private fun addNewMedication() {
         var medicine = Medicine()
 
-            medicine.overCounterName = medicine_detail_generic_name_edit.text.toString()
-            medicine.officialName = medicine_detail_medication_name_edit.text.toString()
-            var withFood = ""
-            if (medicine_detail_food_radio.isChecked) withFood = "Food"
-            if (medicine_detail_no_food_radio.isChecked) withFood = "No Food"
-            if (medicine_detail_either_radio.isChecked) withFood = "Either"
-            medicine.food = withFood
-            medicine.dosage = medicine_detail_dosage_edit.text.toString()
-            medicine.morning = medicine_detail_morning_checkbox.isChecked
-            medicine.afternoon = medicine_detail_afternoon_checkbox.isChecked
-            medicine.evening = medicine_detail_evening_checkbox.isChecked
-            medicine.notes = medicine_detail_notes_edit.text.toString()
+        medicine.overCounterName = medicine_detail_generic_name_edit.text.toString()
+        medicine.officialName = medicine_detail_medication_name_edit.text.toString()
+        var withFood = ""
+        if (medicine_detail_food_radio.isChecked) withFood = "Food"
+        if (medicine_detail_no_food_radio.isChecked) withFood = "No Food"
+        if (medicine_detail_either_radio.isChecked) withFood = "Either"
+        medicine.food = withFood
+        medicine.dosage = medicine_detail_dosage_edit.text.toString()
+        medicine.morning = medicine_detail_morning_checkbox.isChecked
+        medicine.afternoon = medicine_detail_afternoon_checkbox.isChecked
+        medicine.evening = medicine_detail_evening_checkbox.isChecked
+        medicine.notes = medicine_detail_notes_edit.text.toString()
 
-            viewModel.addNewMedicine(medicine)
-}
+        viewModel.addNewMedicine(medicine)
+    }
 
-    private fun connectToXML(view:View) {
+    /**
+     * fun connectToXML(view:View)
+     * just connects lateinit vars to corresponding xml components
+     */
+    private fun connectToXML(view: View) {
         medicine_detail_home_button = view.findViewById(R.id.medicine_detail_home_button)
         medicine_detail_medication_name_edit =
             view.findViewById(R.id.medicine_detail_medication_name_edit)
