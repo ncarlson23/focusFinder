@@ -40,26 +40,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        val notificationsHelper = NotificationsHelper(this)
-//        notificationsHelper.sendNotification()
-
-        val notificationScheduler = NotificationScheduler(this)
-
-
-        val time = Calendar.getInstance()
-
-        time.set(Calendar.HOUR_OF_DAY,19 )
-        time.set(Calendar.MINUTE, 30)
-        time.set(Calendar.SECOND, 0)
-
-        val time2 = Calendar.getInstance()
-
-        time.set(Calendar.HOUR_OF_DAY,19 )
-        time.set(Calendar.MINUTE, 32)
-        time.set(Calendar.SECOND, 0)
-
-
-//        if(viewModel.currentMedicine.value?.morning == true) {
+        //        if(viewModel.currentMedicine.value?.morning == true) {
 //            time.set(Calendar.HOUR_OF_DAY, 9)
 //            time.set(Calendar.MINUTE, 0)
 //            time.set(Calendar.SECOND, 0)
@@ -73,10 +54,36 @@ class MainActivity : AppCompatActivity() {
 //            time.set(Calendar.SECOND, 0)
 //        }
 
+//        val notificationsHelper = NotificationsHelper(this)
+//        notificationsHelper.sendNotification()
 
-        notificationScheduler.scheduleNotification(time, "Task Reminder", "This is a reminder for a task")
-        notificationScheduler.scheduleNotification(time2, "Second Reminder", "This is another reminder for a task")
-//        notificationScheduler.scheduleNotification(time, "Third Reminder", "This is yet another reminder for a task")
+        val notificationScheduler = NotificationScheduler(this)
+
+
+        val time = Calendar.getInstance()
+
+        time.set(Calendar.HOUR_OF_DAY,8 )
+        time.set(Calendar.MINUTE, 59)
+        time.set(Calendar.SECOND, 0)
+
+        val time2 = Calendar.getInstance()
+
+        time.set(Calendar.HOUR_OF_DAY,12 )
+        time.set(Calendar.MINUTE, 59)
+        time.set(Calendar.SECOND, 0)
+
+        val time3 = Calendar.getInstance()
+
+        time.set(Calendar.HOUR_OF_DAY,18 )
+        time.set(Calendar.MINUTE, 59)
+        time.set(Calendar.SECOND, 0)
+
+
+
+
+        notificationScheduler.scheduleNotification(time, "Medicine Reminder", "This is a reminder to take any morning medications")
+        notificationScheduler.scheduleNotification(time2, "Medicine Reminder", "This is a reminder to take any evening medications")
+        notificationScheduler.scheduleNotification(time3, "Medicine Reminder", "This is a reminder to take any night-time medications")
 
 
     }
