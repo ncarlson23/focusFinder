@@ -106,8 +106,8 @@ class taskDetail : Fragment() {
             val timePicker: TimePickerDialog = TimePickerDialog(
                 this.context,
                 timePickerDialogListener,
-                12,
-                10,
+                Calendar.HOUR_OF_DAY,
+                Calendar.MINUTE,
                 false
             )
             timePicker.show()
@@ -116,10 +116,9 @@ class taskDetail : Fragment() {
         task_detail_calendar_button.setOnClickListener {
             val datePicker: DatePickerDialog = DatePickerDialog(
                 this.requireContext(),
-                dateSetListener,
-                2022,
-                12,
-                12,
+                dateSetListener, Calendar.YEAR,
+                Calendar.MONTH,
+                Calendar.DAY_OF_MONTH,
 
                 )
             datePicker.show()
