@@ -30,6 +30,8 @@ class taskDetail : Fragment() {
     lateinit var task_detail_save_button: Button
     lateinit var radio_group: RadioGroup
 
+    var time = Calendar.getInstance()
+
 
     val viewModel: focusFinderViewModel by activityViewModels()
 
@@ -106,19 +108,21 @@ class taskDetail : Fragment() {
             val timePicker: TimePickerDialog = TimePickerDialog(
                 this.context,
                 timePickerDialogListener,
-                Calendar.HOUR_OF_DAY,
-                Calendar.MINUTE,
+                time.get(Calendar.HOUR_OF_DAY),
+                time.get(Calendar.MINUTE),
                 false
             )
             timePicker.show()
         }
 
+
         task_detail_calendar_button.setOnClickListener {
             val datePicker: DatePickerDialog = DatePickerDialog(
                 this.requireContext(),
-                dateSetListener, Calendar.YEAR,
-                Calendar.MONTH,
-                Calendar.DAY_OF_MONTH,
+                dateSetListener,
+                time.get(Calendar.YEAR),
+                time.get(Calendar.MONTH),
+                time.get(Calendar.DAY_OF_MONTH),
 
                 )
             datePicker.show()
