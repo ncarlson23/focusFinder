@@ -48,8 +48,14 @@ class MainActivity : AppCompatActivity() {
 
         val time = Calendar.getInstance()
 
-        time.set(Calendar.HOUR_OF_DAY,18 )
-        time.set(Calendar.MINUTE, 5)
+        time.set(Calendar.HOUR_OF_DAY,19 )
+        time.set(Calendar.MINUTE, 30)
+        time.set(Calendar.SECOND, 0)
+
+        val time2 = Calendar.getInstance()
+
+        time.set(Calendar.HOUR_OF_DAY,19 )
+        time.set(Calendar.MINUTE, 32)
         time.set(Calendar.SECOND, 0)
 
 
@@ -69,6 +75,8 @@ class MainActivity : AppCompatActivity() {
 
 
         notificationScheduler.scheduleNotification(time, "Task Reminder", "This is a reminder for a task")
+        notificationScheduler.scheduleNotification(time2, "Second Reminder", "This is another reminder for a task")
+//        notificationScheduler.scheduleNotification(time, "Third Reminder", "This is yet another reminder for a task")
 
 
     }
