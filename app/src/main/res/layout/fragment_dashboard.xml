@@ -37,31 +37,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".98"/>
 
-
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content">-->
-
-
-    <!--        <TextView-->
-    <!--            android:layout_width="0dp"-->
-    <!--            android:layout_weight="9"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:clickable="false"-->
-    <!--            android:text="Dashboard"-->
-    <!--            android:textColor="@color/black"-->
-    <!--            android:textSize="36sp"-->
-    <!--            android:textStyle="bold" />-->
-
-    <!--        <ImageView-->
-    <!--            android:layout_width="0dp"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:src="@drawable/ic_home"-->
-    <!--            android:layout_gravity="center"-->
-    <!--            android:layout_weight="1"/>-->
-    <!--    </LinearLayout>-->
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -76,6 +51,7 @@
 
         <TextView
             android:id="@+id/textView2"
+            android:contentDescription = "Hello There!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -89,6 +65,7 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:contentDescription = "picture of a sun"
             android:src="@drawable/ic_baseline_wb_sunny_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
@@ -114,6 +91,7 @@
 
     <LinearLayout
         android:id="@+id/dashboard_medicine_title_layout"
+        android:contentDescription = "Medicine Tracker"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -133,6 +111,7 @@
             android:textSize="22sp" />
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:contentDescription = "arrow pointing to the right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -157,6 +136,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dashboard_medicine_title_layout">
 
         <TextView
+            android:contentDescription = "you have these meds to take today"
             android:id="@+id/dashboard_num_meds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -166,6 +146,7 @@
             android:textStyle="italic" />
 
         <TextView
+            android:contentDescription = "list of medicines to take today"
             android:id="@+id/dashboard_meds_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -177,17 +158,8 @@
 
     </LinearLayout>
 
-
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="160dp"-->
-    <!--        android:layout_margin="10dp"-->
-    <!--        android:background="@drawable/round_rect_shape"-->
-    <!--        android:elevation="10dp">-->
-
-    <!--    </LinearLayout>-->
-
     <LinearLayout
+        android:contentDescription = "upcoming tasks"
         android:id="@+id/dashboard_tasks_title_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -200,6 +172,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <TextView
+            android:contentDescription = "upcoming tasks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -209,6 +182,7 @@
             android:textSize="22sp" />
 
         <androidx.appcompat.widget.AppCompatImageButton
+            android:contentDescription = "right pointing arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -232,6 +206,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dashboard_tasks_title_layout">
 
         <TextView
+            android:contentDescription = "number of tasks to be completed"
             android:id="@+id/dashboard_total_tasks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -241,6 +216,7 @@
             android:textStyle="italic" />
 
         <TextView
+            android:contentDescription = "number of tasks to complete today"
             android:id="@+id/dashboard_tasks_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -251,6 +227,7 @@
             android:textStyle="italic" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:contentDescription = "first task on list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -273,6 +250,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:contentDescription = "task item"
                         android:id="@+id/dashboard_task_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -283,6 +261,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:contentDescription = "priority"
                         android:id="@+id/dashboard_task_priority"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -295,6 +274,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:contentDescription = "date"
                     android:id="@+id/dashboard_task_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -304,6 +284,7 @@
             </LinearLayout>
 
             <ImageView
+                android:contentDescription = "picture of a clipboard"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -312,18 +293,6 @@
 
 
         </LinearLayout>
-
-
-        <!--    <LinearLayout-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="match_parent"-->
-        <!--        android:layout_margin="10dp"-->
-        <!--        android:background="@drawable/round_rect_shape"-->
-        <!--        android:elevation="10dp">-->
-
-
-        <!--    </LinearLayout>-->
-
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

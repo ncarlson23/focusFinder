@@ -11,6 +11,7 @@
     android:padding="10dp">
 
     <CheckBox
+        android:contentDescription = "checkbox"
         android:id="@+id/task_item_checkbox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -35,6 +36,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:contentDescription = "name of task"
                 android:id="@+id/task_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,6 +47,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:contentDescription = "red exclamation points to show priority value"
                 android:id="@+id/task_item_priority"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,12 +60,14 @@
         </LinearLayout>
 
         <TextView
+            android:contentDescription = "date"
             android:id="@+id/task_item_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date" />
 
         <TextView
+            android:contentDescription = "notes"
             android:id="@+id/task_item_notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,6 +78,7 @@
     </LinearLayout>
 
     <android.widget.Button
+        android:contentDescription = "task edit button"
         android:id="@+id/task_item_edit_button"
         android:layout_width="32dp"
         android:layout_height="32dp"

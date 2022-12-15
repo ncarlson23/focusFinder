@@ -14,6 +14,7 @@
         android:paddingBottom="10dp">
 
         <TextView
+            android:contentDescription = "edit task"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Edit Task"
@@ -25,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.widget.Button
+            android:contentDescription = "home button"
             android:id="@+id/task_detail_home_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -49,6 +51,7 @@
 
 
         <EditText
+            android:contentDescription = "name of task"
             android:id="@+id/task_detail_task_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,6 +86,7 @@
                     android:text="Date:" />
 
                 <android.widget.Button
+                    android:contentDescription = "calendar button to set date"
                     android:id="@+id/task_detail_calendar_button"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
@@ -111,7 +115,8 @@
                     android:paddingRight="7dp"
                     android:text="Time:" />
 
-                <android.widget.Button
+                <android.widget.
+                    android:contentDescription = "clock button to set time"
                     android:id="@+id/task_detail_time_button"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
@@ -143,6 +148,7 @@
                     android:orientation="horizontal">
 
                     <RadioButton
+                        android:contentDescription = "low priority radio button"
                         android:id="@+id/task_detail_low_radio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -152,6 +158,7 @@
                         android:textStyle="bold" />
 
                     <RadioButton
+                        android:contentDescription = "medium priority radio button"
                         android:id="@+id/task_detail_med_radio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -161,6 +168,7 @@
                         android:textStyle="bold" />
 
                     <RadioButton
+                        android:contentDescription = "high priority radio button"
                         android:id="@+id/task_detail_high_radio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -183,7 +191,7 @@
 
 
         <EditText
-
+            android:contentDescription = "additional notes"
             android:id="@+id/task_detail_notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -197,6 +205,7 @@
             android:layout_height="match_parent">
 
             <Button
+                android:contentDescription = "blue save button"
                 android:id="@+id/task_detail_save_button"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"

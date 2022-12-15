@@ -26,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.widget.Button
+            android:contentDescription = "home button"
             android:id="@+id/timer_home_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -38,6 +39,7 @@
 
 
     <TextView
+        android:contentDescription = "timer clock"
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,6 +53,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
     <Button
+        android:contentDescription = "timer start button"
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -61,6 +64,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
     <Button
+        android:contentDescription = "timer reset button"
         android:id="@+id/reset"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -72,6 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <EditText
+        android:contentDescription = "input time in minutes"
         android:id="@+id/time_edit_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -111,6 +116,7 @@
         app:layout_constraintGuide_percent=".7" />
 
     <nl.dionsegijn.konfetti.KonfettiView
+        android:contentDescription = "confetti appears when timer hits 0"
         android:id="@+id/viewKonfetti"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

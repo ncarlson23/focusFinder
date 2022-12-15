@@ -14,6 +14,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:contentDescription = "edit medication"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Edit Medication"
@@ -24,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.widget.Button
+            android:contentDescription = "home button"
             android:id="@+id/medicine_detail_home_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -50,6 +52,7 @@
                 android:text="Medication Name:" />
 
             <EditText
+                android:contentDescription = "medication name"
                 android:id="@+id/medicine_detail_medication_name_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,6 +67,7 @@
                 android:text="Generic Name:" />
 
             <EditText
+                android:contentDescription = "generic name"
                 android:id="@+id/medicine_detail_generic_name_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,6 +82,7 @@
                 android:text="Dosage Amount:" />
 
             <EditText
+                android:contentDescription = "dosage amount"
                 android:id="@+id/medicine_detail_dosage_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,6 +95,7 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
+                    android:contentDescription = "morning checkbox"
                     android:id="@+id/medicine_detail_morning_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -100,6 +106,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
+                    android:contentDescription = "afternoon checkbox"
                     android:id="@+id/medicine_detail_afternoon_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -110,6 +117,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
+                    android:contentDescription = "evening checkbox"
                     android:id="@+id/medicine_detail_evening_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -128,6 +136,7 @@
                 android:paddingTop="20dp">
 
                 <RadioButton
+                    android:contentDescription = "with food radio button"
                     android:id="@+id/medicine_detail_food_radio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -135,6 +144,7 @@
                     android:text="With Food" />
 
                 <RadioButton
+                    android:contentDescription = "without food radio button"
                     android:id="@+id/medicine_detail_no_food_radio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -142,6 +152,7 @@
                     android:text="Without Food" />
 
                 <RadioButton
+                    android:contentDescription = "with or without food radio button"
                     android:id="@+id/medicine_detail_either_radio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -156,6 +167,7 @@
                 android:text="Additional Notes:" />
 
             <EditText
+                android:contentDescription = "additional notes"
                 android:id="@+id/medicine_detail_notes_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -169,6 +181,7 @@
                 android:layout_height="match_parent">
 
                 <Button
+                    android:contentDescription = "blue save button"
                     android:id="@+id/medicine_detail_save_button"
                     android:layout_width="match_parent"
                     android:layout_height="65dp"

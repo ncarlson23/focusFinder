@@ -29,6 +29,7 @@
             android:layout_weight="10"/>
 
         <android.widget.Button
+            android:contentDescription = "delete medicine button"
             android:id="@+id/medicine_item_delete"
             android:layout_width="36dp"
             android:layout_height="36dp"
@@ -47,6 +48,7 @@
         android:paddingBottom="25dp">
 
         <TextView
+            android:contentDescription = "how many times a day to take the medicine"
             android:id="@+id/medicine_item_icon_one"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -58,6 +60,7 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <ImageView
+            android:contentDescription = "image showing time of day to take medicine"
             android:id="@+id/medicine_item_icon_two"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -66,6 +69,7 @@
             android:src="@drawable/ic_morning_night"
             app:layout_constraintEnd_toEndOf="parent"/>
         <ImageView
+            android:contentDescription = "food image to show whether or not to take with food"
             android:id="@+id/medicine_item_icon_three"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -85,6 +89,7 @@
 
 
     <TextView
+        android:contentDescription = "generic medicine name"
         android:id="@+id/medicine_item_generic_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -95,6 +100,7 @@
         android:textStyle="bold" />
 
     <TextView
+        android:contentDescription = "medicine name"
         android:id="@+id/medicine_item_medicine_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,6 +111,7 @@
         android:textStyle="bold|italic" />
 
     <TextView
+        android:contentDescription = "dosage amount"
         android:id="@+id/medicine_item_dosage_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -119,6 +126,7 @@
         android:layout_height="1dp" />
 
     <TextView
+        android:contentDescription = "additional notes"
         android:id="@+id/medicine_item_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

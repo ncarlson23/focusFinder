@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:contentDescription = "your medication"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Your Medications"
@@ -27,6 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.widget.Button
+            android:contentDescription = "home button"
             android:id="@+id/medicine_home_home_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -51,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
+        android:contentDescription = "blue add new medicine button"
         android:id="@+id/medicine_home_add_button"
         android:layout_width="match_parent"
         android:layout_height="65dp"
