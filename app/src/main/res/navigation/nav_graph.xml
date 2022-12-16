@@ -44,21 +44,6 @@
         android:name="com.example.focusfinder.medicineDetail"
         android:label="fragment_medicine_detail"
         tools:layout="@layout/fragment_medicine_detail" />
-    <fragment
-        android:id="@+id/login"
-        android:name="com.example.focusfinder.Login"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
-    <fragment
-        android:id="@+id/createAccount"
-        android:name="com.example.focusfinder.createAccount"
-        android:label="fragment_create_account"
-        tools:layout="@layout/fragment_create_account" />
-    <fragment
-        android:id="@+id/profile"
-        android:name="com.example.focusfinder.Profile"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
     <action
         android:id="@+id/action_global_dashboard"
         app:destination="@id/dashboard" />
@@ -71,7 +56,4 @@
     <action
         android:id="@+id/action_global_taskHome"
         app:destination="@id/taskHome" />
-    <action
-        android:id="@+id/action_global_profile"
-        app:destination="@id/profile" />
 </navigation>
