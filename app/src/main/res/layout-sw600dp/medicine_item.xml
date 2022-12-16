@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="500dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/med_item_shape"
+    android:orientation="vertical"
+    android:elevation="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#6CB8EC"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/medicine_item_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="20dp"
+            android:text="Your Medication"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_weight="10"/>
+
+        <android.widget.Button
+            android:contentDescription = "delete medicine button"
+            android:id="@+id/medicine_item_delete"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/ic_baseline_delete_24"
+            android:layout_gravity="center" />
+
+
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp">
+
+        <TextView
+            android:contentDescription = "how many times a day to take the medicine"
+            android:id="@+id/medicine_item_icon_one"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="100sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:contentDescription = "image showing time of day to take medicine"
+            android:id="@+id/medicine_item_icon_two"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_morning_night"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <ImageView
+            android:contentDescription = "food image to show whether or not to take with food"
+            android:id="@+id/medicine_item_icon_three"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+
+            android:src="@drawable/ic_baseline_fastfood_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+
+    <TextView
+        android:contentDescription = "generic medicine name"
+        android:id="@+id/medicine_item_generic_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:text="Generic Name"
+        android:textColor="@color/black"
+        android:paddingTop="10dp"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:contentDescription = "medicine name"
+        android:id="@+id/medicine_item_medicine_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:text="Medicine Name"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#424242"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:contentDescription = "dosage amount"
+        android:id="@+id/medicine_item_dosage_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp"
+        android:text="Dosage Amount"
+        android:textSize="20dp" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:contentDescription = "additional notes"
+        android:id="@+id/medicine_item_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="25dp"
+        android:text="Additional Notes..." />
+
+</LinearLayout>

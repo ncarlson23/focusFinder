@@ -21,12 +21,13 @@ class MainActivity : AppCompatActivity() {
     val viewModel: focusFinderViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // place this before set content view so that data loads in as soon as the fragment is created
+        viewModel.taskDatabase.value = TaskDB.getDBObject(applicationContext)
+        viewModel.medicineDatabase.value = MedicineDB.getDBObject(applicationContext)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        viewModel.taskDatabase.value = TaskDB.getDBObject(applicationContext)
-        viewModel.medicineDatabase.value = MedicineDB.getDBObject(applicationContext)
 
 
         /**
@@ -81,23 +82,27 @@ class MainActivity : AppCompatActivity() {
         time.set(Calendar.SECOND, 0)
 
 
+        /**
+         * The code below has commented out to prevent any notifications from being created
+         * We got it mostly working but were unable to have it consistently push the proper notification
+         * so for the final release we are not going to include notifications
+         */
 
-
-        notificationScheduler.scheduleNotification(
-            time,
-            "Medicine Reminder",
-            "This is a reminder to take any morning medications"
-        )
-        notificationScheduler.scheduleNotification(
-            time2,
-            "Medicine Reminder",
-            "This is a reminder to take any evening medications"
-        )
-        notificationScheduler.scheduleNotification(
-            time3,
-            "Medicine Reminder",
-            "This is a reminder to take any night-time medications"
-        )
+//        notificationScheduler.scheduleNotification(
+//            time,
+//            "Medicine Reminder",
+//            "This is a reminder to take any morning medications"
+//        )
+//        notificationScheduler.scheduleNotification(
+//            time2,
+//            "Medicine Reminder",
+//            "This is a reminder to take any evening medications"
+//        )
+//        notificationScheduler.scheduleNotification(
+//            time3,
+//            "Medicine Reminder",
+//            "This is a reminder to take any night-time medications"
+//        )
 
 
     }

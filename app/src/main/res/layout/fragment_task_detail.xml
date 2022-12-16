@@ -115,7 +115,7 @@
                     android:paddingRight="7dp"
                     android:text="Time:" />
 
-                <android.widget.
+                <android.widget.Button
                     android:contentDescription = "clock button to set time"
                     android:id="@+id/task_detail_time_button"
                     android:layout_width="36dp"
@@ -132,7 +132,8 @@
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout8">
+                app:layout_constraintStart_toEndOf="@+id/linearLayout8"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -148,30 +149,30 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:contentDescription = "low priority radio button"
                         android:id="@+id/task_detail_low_radio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="low priority radio button"
                         android:text="!"
                         android:textColor="#C80000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <RadioButton
-                        android:contentDescription = "medium priority radio button"
                         android:id="@+id/task_detail_med_radio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="medium priority radio button"
                         android:text="!!"
                         android:textColor="#C80000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <RadioButton
-                        android:contentDescription = "high priority radio button"
                         android:id="@+id/task_detail_high_radio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="high priority radio button"
                         android:text="!!!"
                         android:textColor="#C80000"
                         android:textSize="18sp"

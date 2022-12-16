@@ -36,6 +36,8 @@ class focusFinderViewModel : ViewModel() {
 
         medicineList.value = emptyArray()
         taskList.value = emptyArray()
+        getMedicineListFromDB()
+        getTaskListFromDB()
         currentMedicine.value = null
         currentTask.value = null
     }
@@ -47,7 +49,11 @@ class focusFinderViewModel : ViewModel() {
      */
     fun getMedicineListFromDB() {
         medicineList.value = medicineDatabase.value?.medicineDAO()?.getMedicineFromDB()
+        if (medicineList.value == null) {
+            medicineList.value = emptyArray()
+        }
         medicineList.value?.reverse()
+
     }
 
     /**
@@ -58,7 +64,6 @@ class focusFinderViewModel : ViewModel() {
      */
     fun getTaskListFromDB() {
         taskList.value = taskDatabase.value?.TaskDAO()?.getTaskListFromDB()
-        Log.d("TASK VALUE", taskList.value.toString())
         if (taskList.value == null) {
             taskList.value = emptyArray()
         }

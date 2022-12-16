@@ -12,6 +12,7 @@
         tools:layout="@layout/fragment_dashboard" />
     <fragment
         android:id="@+id/timer"
+        
         android:name="com.example.focusfinder.Timer"
         android:label="fragment_timer"
         tools:layout="@layout/fragment_timer" />

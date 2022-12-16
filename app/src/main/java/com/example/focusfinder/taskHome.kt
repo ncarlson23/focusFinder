@@ -72,7 +72,7 @@ class taskHome : Fragment() {
                 it,
                 viewModel
             )
-        }!!  //having an issue
+        }!!
         viewAdapter.clickLambda = taskClickLambda
         task_home_recycler_view.layoutManager = viewManager
         task_home_recycler_view.adapter = viewAdapter

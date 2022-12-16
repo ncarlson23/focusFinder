@@ -13,7 +13,6 @@ package com.example.focusfinder
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -82,9 +81,6 @@ class taskDetail : Fragment() {
 
                     formattedDate = "MM/dd/yyyy"
 
-//                cal.toString()
-                    Log.d("PENIS", formattedDate)
-                    //  formattedDate = "dd/mm/yyyy"
                     sdf = SimpleDateFormat(formattedDate, Locale.US).format(cal.time)
 
                 }

@@ -151,6 +151,7 @@
             android:text="You have 3 meds to take today"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:id="@+id/dashboard_num_meds"
             android:textStyle="italic" />
 
         <TextView
@@ -158,6 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:id="@+id/dashboard_meds_list"
             android:background="@drawable/task_item_shape"
             android:padding="10dp"
             android:text="Medicine #1\nMedicine #2\nMedicine#3"
@@ -215,18 +217,10 @@
             android:layout_height="wrap_content"
             android:text="You have 12 total tasks to complete"
             android:textColor="@color/black"
+            android:id="@+id/dashboard_total_tasks"
             android:textSize="16sp"
             android:textStyle="italic" />
 
-        <TextView
-            android:contentDescription = "number of tasks due today"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:text="2 of which are due today"
-            android:textColor="#303030"
-            android:textSize="14sp"
-            android:textStyle="italic" />
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:contentDescription = "task item"
@@ -253,7 +247,7 @@
 
                     <TextView
                         android:contentDescription = "task item"
-                        android:id="@+id/task_item_name"
+                        android:id="@+id/dashboard_task_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="10dp"
@@ -264,7 +258,7 @@
 
                     <TextView
                         android:contentDescription = "red exclamation points"
-                        android:id="@+id/task_item_priority"
+                        android:id="@+id/dashboard_task_priority"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:letterSpacing=".4"
@@ -277,7 +271,7 @@
 
                 <TextView
                     android:contentDescription = "date"
-                    android:id="@+id/task_item_date"
+                    android:id="@+id/dashboard_task_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Date" />
